@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Page from './_page';
+import Router from 'next/router';
 
 import { indexStyle } from '../assets/css'
 
-export default class Index extends Component {
+import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
+
+class Index extends Component {
+    componentDidMount() {
+        if(this.props.token === '') {
+            Router.push('/login');
+        }
+    }
     render() {
         return (
             <div>
-                Teste dev
+                Token { this.props.token }
                 <style jsx>{ indexStyle }</style>
             </div>
         )
     }
 }
+
+
+const mapStateToProps = state => ({
+    token: state.AutenticationReducer.token
+});
+
+export default Page(connect(mapStateToProps, { modifyToken })(Index));
