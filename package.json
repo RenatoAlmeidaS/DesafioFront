@@ -1,0 +1,21 @@
+{
+  "name": "appetitfront",
+  "version": "1.0.0",
+  "description": "Desenvolvimento Front-end para desafio pela Infoway",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "appetit"
+  ],
+  "author": "Renato Almeida",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "next": "^9.0.2",
+    "next-routes": "^1.4.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
