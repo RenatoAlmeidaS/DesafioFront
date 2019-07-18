@@ -1,0 +1,51 @@
+html {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+  
+* { 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    position: relative;
+/*  font - size: 14px;  
+    font - weight: 400;
+    background - color: #FCFCFC;  
+    overflow - x: hidden!important;   */
+}
+
+/* font resizing
+
+@media(max - width: 1366px) {
+    body {
+        font - size: 12px;
+    }
+}
+
+@media(max - width: 1242px) {
+    body {
+        font - size: 10px;
+    }
+}
+
+@media(max - width: 908px) {
+    body {
+        font - size: 8px;
+    }
+}
+
+@media(max - width: 710px) {
+    body {
+        font - size: 13px;
+    }
+}
+
+ */

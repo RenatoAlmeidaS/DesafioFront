@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Page from './_page';
 import Router from 'next/router';
 
-import { indexStyle } from '../assets/css'
+import { indexStyle } from '../static/css'
 
 import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
 
