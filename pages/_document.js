@@ -5,7 +5,6 @@ export default class MyDocument extends Document {
         return (
                 <html>
                     <Head>
-                        <title>Appetit</title>
                         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
                         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" />
                         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />

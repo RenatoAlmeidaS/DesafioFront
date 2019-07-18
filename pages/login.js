@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Page from './_page';
 import Router from 'next/router';
 
 import { loginStyle } from '../static/css'
@@ -53,7 +52,7 @@ class Login extends Component {
     render() {
         return (
             <div className="container">
-                    
+                    {console.log(this.props)}
                     <img className="logo" src={logo} /> 
                     <SectionHeader sectionTitle="Seja bem-vindo!"/>
                     <p>Nós sabemos a importância de estar sempre de barriga cheia e o quanto isso pode ajudar no seu dia.</p>
@@ -73,4 +72,4 @@ const mapStateToProps = state => ({
     token: state.AutenticationReducer.token
 });
 
-export default Page(connect(mapStateToProps, { modifyToken })(Login));
+export default connect(mapStateToProps, { modifyToken })(Login);

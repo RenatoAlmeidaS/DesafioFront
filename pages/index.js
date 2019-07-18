@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Page from './_page';
 import Router from 'next/router';
 
 import { indexStyle } from '../static/css'
@@ -16,6 +15,7 @@ class Index extends Component {
     render() {
         return (
             <div>
+                {console.log(this.props)}
                 Token { this.props.token }
                 <style jsx>{ indexStyle }</style>
             </div>
@@ -28,4 +28,4 @@ const mapStateToProps = state => ({
     token: state.AutenticationReducer.token
 });
 
-export default Page(connect(mapStateToProps, { modifyToken })(Index));
+export default connect(mapStateToProps, { modifyToken })(Index);
