@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-    token: 'abcd',
+    token: 'abcde',
 };
 
 export default (state = INITIAL_STATE, action) => {
