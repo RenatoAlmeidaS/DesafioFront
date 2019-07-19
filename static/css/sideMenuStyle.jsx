@@ -40,6 +40,7 @@ export const sideMenuStyle = css`
         display:flex;
         padding-left:2rem;
         align-items:center;
+        cursor:pointer;
     }
 
     .subcategory {
@@ -50,10 +51,22 @@ export const sideMenuStyle = css`
         margin-bottom: 1rem;
         padding-left: 2rem;
         align-items:center;
+        cursor:pointer;
     }
 
+    .category:hover{
+        opacity: 1;
+        background-color: rgba(255,255,255,.5);
+    }
+    .subcategory:hover{
+        opacity: 1;
+    }
     .subselected {
         border-left: 2px solid white;
+    }
+
+    .unselect {
+        opacity :.54;
     }
 
     .category img {

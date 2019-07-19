@@ -22,10 +22,10 @@ export default (props) => {
                 <div className='subcategory subselected'>
                     EM ABERTOS
                 </div>
-                <div className='subcategory'>
+                <div className='subcategory unselect'>
                     ENCERRADOS
                 </div>
-                <nav className='category'>
+                <nav className='category unselect'>
                 <img src={user} /> 
                 CLIENTES
                 </nav>
