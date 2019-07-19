@@ -6,12 +6,13 @@ import {
 
 export default (props) => {
     const {
-        url
+        url,
+        perfil
     } = props;
 
     return (
         <div>
-            <img src={url}/>
+            <img src={url} className={perfil ? 'perfil' : ''}/>
             <style jsx>{photoStyle}</style>
         </div>
     )

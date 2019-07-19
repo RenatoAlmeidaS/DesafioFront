@@ -6,6 +6,7 @@ import { sideMenuStyle } from './sideMenuStyle';
 import { photoStyle } from './photoStyle';
 import { requestButtonStyle } from './requestButtonStyle';
 import { searchBarStyle } from './searchBarStyle';
+import { historicStyle } from './historicStyle';
 
 
 export {
@@ -16,5 +17,6 @@ export {
     sideMenuStyle,
     photoStyle,
     requestButtonStyle,
-    searchBarStyle
+    searchBarStyle,
+    historicStyle
 }

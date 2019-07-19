@@ -5,6 +5,7 @@ import SectionHeaderTwo from './sectionHeaderTwo';
 import Photo from './photo';
 import RequestButton from './requestButton';
 import SearchBar from './searchBar';
+import Historic from './historic';
 
 
 export {
@@ -14,5 +15,6 @@ export {
     SectionHeaderTwo,
     Photo,
     RequestButton,
-    SearchBar
+    SearchBar,
+    Historic
 }

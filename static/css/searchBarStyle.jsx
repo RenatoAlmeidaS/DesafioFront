@@ -8,10 +8,10 @@ export const searchBarStyle = css`
         border-bottom: 1px solid rgba(0, 0, 0, 0.34);
         height: 3rem;
         margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
         color: rgba(0, 0, 0, 0.54);
         display:flex;
         align-items:center;
+        margin-bottom: 1rem;
     }
     input {
         background-color:transparent;
