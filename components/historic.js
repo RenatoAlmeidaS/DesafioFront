@@ -10,9 +10,11 @@ import { toMoney } from '../general/utils'
 
 const add = require('../static/imgs/add.svg')
 
+
 export default (props) => {
     const {
-        data
+        data,
+        func
     } = props;
 
     return (
@@ -21,7 +23,7 @@ export default (props) => {
                 <div className="container" key={day.date}>
                     <p><mark>{day.date}</mark>, Você vendeu <mark>{toMoney(day.value)}</mark></p>
                     {day.requests.map((request) => (
-                        <div className='request' key={request.id} onClick={props.onClick}>
+                        <div className='request' id={request.id} key={request.id} onClick={() => { func(request.id) }}>
                             <Photo perfil={false} url={request.photo} />
                             <div>
                                 <p>

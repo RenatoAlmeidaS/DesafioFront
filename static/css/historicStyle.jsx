@@ -9,9 +9,6 @@ export const historicStyle = css`
         font-weight:bold;
         background-color:transparent;
     }
-    p {
-        min-width:4rem;
-    }
     .request {
         width: 100%;
         display:flex;
@@ -22,6 +19,8 @@ export const historicStyle = css`
         padding:0 1rem;
         box-shadow: 0px 0.5px 10px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
+        position:relative;
+        z-index:99;
     }
     .request:hover {
         cursor:pointer;
@@ -32,6 +31,12 @@ export const historicStyle = css`
         margin-top: 0;
         margin-bottom: 0;
         min-width:4rem;
+        position:relative;
+        z-index:-100;
+    }
+    .request div {
+        position:relative;
+        z-index:-99;
     }
 
     .value {

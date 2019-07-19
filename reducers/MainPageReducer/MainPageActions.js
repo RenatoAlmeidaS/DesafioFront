@@ -1,5 +1,11 @@
-export const logoutBalance = () => (
+export const modifyRequestFrom = requestFrom => (
     {
-        type: 'logoutBalance'
+        type: 'modifyRequestFrom',
+        requestFrom
+    }
+);
+export const resetRequestFrom = () => (
+    {
+        type: 'resetRequestFrom'
     }
 );

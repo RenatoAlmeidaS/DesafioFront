@@ -55,11 +55,16 @@ data: [{
             }]
     },
 
-]
+],
+requestFrom: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case 'modifyRequestFrom':
+            return { ...state, requestFrom: action.requestFrom }
+        case 'resetRequestFrom':
+            return { ...state, requestFrom: '' }
         default:
             break;
     }
