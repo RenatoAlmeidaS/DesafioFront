@@ -3,6 +3,7 @@ import Button from './button';
 import SideMenu from './sideMenu';
 import SectionHeaderTwo from './sectionHeaderTwo'
 import Photo from './photo'
+import RequestButton from './requestButton'
 
 
 export {
@@ -10,5 +11,6 @@ export {
     Button,
     SideMenu,
     SectionHeaderTwo,
-    Photo
+    Photo,
+    RequestButton
 }

@@ -4,7 +4,7 @@ import Router from 'next/router';
 
 import { indexStyle } from '../static/css'
 
-import { SectionHeaderTwo, Button, SideMenu, Photo } from '../components'
+import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton } from '../components'
 
 import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
 
@@ -21,7 +21,8 @@ class Index extends Component {
                 <SideMenu onClick={ () => {} }/>
                 <Photo url={this.props.photo} />
                 <section>
-                    <SectionHeaderTwo sectionTitle='Olá Vanusa!'/>
+                    <SectionHeaderTwo sectionTitle={`Olá, ${this.props.name}!`}/>
+                    <RequestButton name='FAZER NOVO PEDIDO'/>
                 </section>
                 <style jsx>{ indexStyle }</style>
             </div>
@@ -32,7 +33,8 @@ class Index extends Component {
 
 const mapStateToProps = state => ({
     token: state.AutenticationReducer.token,
-    photo: state.MainPageReducer.photo
+    photo: state.MainPageReducer.photo,
+    name: state.MainPageReducer.name
 });
 
 export default connect(mapStateToProps, { modifyToken })(Index);
