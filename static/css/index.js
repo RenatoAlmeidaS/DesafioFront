@@ -3,6 +3,7 @@ import { loginStyle } from './loginStyle';
 import { sectionHeaderStyle } from './sectionHeaderStyle';
 import { buttonStyle } from './buttonStyle';
 import { sideMenuStyle } from './sideMenuStyle';
+import { photoStyle } from './photoStyle'
 
 
 export {
@@ -10,5 +11,6 @@ export {
     loginStyle,
     sectionHeaderStyle,
     buttonStyle,
-    sideMenuStyle
+    sideMenuStyle,
+    photoStyle
 }

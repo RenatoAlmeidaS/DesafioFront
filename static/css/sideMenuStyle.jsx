@@ -7,11 +7,12 @@ export const sideMenuStyle = css`
         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
         height: 100vh;
         width:21rem;
-        position: absolute;
         display:flex;
         flex-direction:column;
         justify-content:space-between;
         text-align:center;
+        color:white;
+        position:fixed;
     }
     p {
         font-size:.75rem;
