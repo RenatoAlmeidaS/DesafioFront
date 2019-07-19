@@ -4,7 +4,7 @@ import Router from 'next/router';
 
 import { indexStyle } from '../static/css'
 
-import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton } from '../components'
+import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton, SearchBar } from '../components'
 
 import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
 
@@ -22,7 +22,8 @@ class Index extends Component {
                 <Photo url={this.props.photo} />
                 <section>
                     <SectionHeaderTwo sectionTitle={`Olá, ${this.props.name}!`}/>
-                    <RequestButton name='FAZER NOVO PEDIDO'/>
+                    <RequestButton name='FAZER NOVO PEDIDO' onClick= {() => {}}/>
+                    <SearchBar name='Procure o pedido aqui...' onChange={() =>{}} onClick={() => {}} />
                 </section>
                 <style jsx>{ indexStyle }</style>
             </div>

@@ -4,7 +4,8 @@ import { sectionHeaderStyle } from './sectionHeaderStyle';
 import { buttonStyle } from './buttonStyle';
 import { sideMenuStyle } from './sideMenuStyle';
 import { photoStyle } from './photoStyle';
-import { requestButtonStyle } from './requestButtonStyle'
+import { requestButtonStyle } from './requestButtonStyle';
+import { searchBarStyle } from './searchBarStyle';
 
 
 export {
@@ -14,5 +15,6 @@ export {
     buttonStyle,
     sideMenuStyle,
     photoStyle,
-    requestButtonStyle
+    requestButtonStyle,
+    searchBarStyle
 }
