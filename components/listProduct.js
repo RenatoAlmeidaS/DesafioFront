@@ -10,20 +10,21 @@ import { toMoney } from '../general/utils'
 
 export default (props) => {
     const {
-        data
+        data,
+        func
     } = props;
 
     return (
         <div className='container'>
             {data.map((food,count) => (
-                <div className= 'category'>
-                    <div key={count}>
+                <div className='category' key={count}>
+                    <div>
                         <p>
                             {food.name}
                         </p>
                         {food.foods.map((e, position) => (
-                            <div>
-                            <div className='product' key={e.food}>
+                            <div key={e.food} >
+                                <div className='product'onClick={() => { func(e.food) }}>
                                 <div>
                                     <Photo perfil={false} url={e.photo} />
                                     <p>

@@ -19,6 +19,11 @@ export const listProductStyle = css`
   margin: .5rem 0;
 }
 
+.product:hover {
+  cursor:pointer;
+  opacity: .8;
+}
+
 .product p {
   padding-left: 1rem;
 }

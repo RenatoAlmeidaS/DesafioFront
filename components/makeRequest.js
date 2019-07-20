@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeRequestStyle } from '../static/css';
 
-import { SectionHeaderTwo, SearchBar, ListProduct } from '../components'
+import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar } from '../components'
 
 
 //const add = require('../static/imgs/add.svg')
 
 
 class MakeRequest extends Component {
+
+    selectFood(name) {
+        console.log(name);
+    }
+
     renderPassOne() {
         return (
             <div id='one' className='container'>
@@ -16,15 +21,12 @@ class MakeRequest extends Component {
                 <p>
                     Preencha as informações abaixo para concluir esta venda.
                 </p>
-                <div>
-                    lalala
-                </div>
+                <ProgressBar progress={this.props.step} />
                 <p className='bold'>
                     O que você está vendendo?
                 </p>
                 <SearchBar button={false} name='Procure o pedido aqui...'/>
-                <ListProduct data={this.props.foods}/>
-
+                <ListProduct func={this.selectFood.bind(this)} data={this.props.foods}/>
                 <style jsx>{makeRequestStyle}</style>
             </div>
         );

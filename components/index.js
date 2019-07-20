@@ -9,6 +9,7 @@ import Historic from './historic';
 import RequestList from './requestList';
 import MakeRequest from './makeRequest';
 import ListProduct from './listProduct';
+import ProgressBar from './progressBar';
 
 
 export {
@@ -22,5 +23,6 @@ export {
     Historic,
     RequestList,
     MakeRequest,
-    ListProduct
+    ListProduct,
+    ProgressBar
 }

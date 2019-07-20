@@ -10,6 +10,7 @@ import { historicStyle } from './historicStyle';
 import { requestListStyle } from './requestListStyle';
 import { makeRequestStyle } from './makeRequestStyle';
 import { listProductStyle } from './listProductStyle';
+import { progressBarStyle } from './progressBarStyle';
 
 
 export {
@@ -24,5 +25,6 @@ export {
     historicStyle,
     requestListStyle,
     makeRequestStyle,
-    listProductStyle
+    listProductStyle,
+    progressBarStyle
 }
