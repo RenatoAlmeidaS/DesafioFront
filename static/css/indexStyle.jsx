@@ -22,11 +22,11 @@ export const indexStyle = css`
     flex-direction: column; 
     width: 100%;
     align-items: flexStart;
-    margin: 4.5rem 2.5rem 0 23.5rem;
+    padding: 4.5rem 2.5rem 0 23.5rem;
   }
 
   #makeReq {
-    margin: 0;
+    padding: 0;
     margin-left:19rem;
   }
   .container {
@@ -40,7 +40,7 @@ export const indexStyle = css`
     position:relative;
     display:flex;
     flex-direction:column;
-    padding: 3.5rem 2.5rem 0 1.5rem;
+    padding: 3.5rem 2.5rem 0 2.8rem;
   }
 
   .ilustrate {

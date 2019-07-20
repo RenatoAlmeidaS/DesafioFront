@@ -13,6 +13,7 @@ export const sideMenuStyle = css`
         text-align:center;
         color:white;
         position:fixed;
+        z-index:999;
     }
     p {
         font-size:.75rem;

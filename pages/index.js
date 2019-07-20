@@ -16,7 +16,7 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            makeReq: true
+            makeReq: false
         }
     }
 /*    componentDidMount() {
@@ -57,7 +57,7 @@ class Index extends Component {
     renderMakeReq() {
         return (
             <section id='makeReq'>
-            <div className='containerReq'>
+            <div className='container'>
                 <div className='left'>
                     <div className='back' onClick={() => { this.setState({makeReq: false}) }}>
                         <img src={back} />
