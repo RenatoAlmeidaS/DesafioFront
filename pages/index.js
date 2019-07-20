@@ -10,8 +10,15 @@ import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActio
 import { modifyRequestFrom, resetRequestFrom, modifyUserData } from './../reducers/MainPageReducer/MainPageActions';
 
 const back = require('../static/imgs/back.svg')
+const ilustrate = require('../static/imgs/Illustration.png')
 
 class Index extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            makeReq: true
+        }
+    }
 /*    componentDidMount() {
         if(this.props.token === '') {
             Router.push('/login');
@@ -47,36 +54,61 @@ class Index extends Component {
         }
     }
 
-    renderSection() {
-        if (this.props.requestFrom===''){
-            return (
-            <section >
-                <SectionHeaderTwo sectionTitle={`Olá, ${this.props.name}!`} />
-                <RequestButton name='FAZER NOVO PEDIDO' onClick={() => { }} />
-                <SearchBar name='Procure o pedido aqui...' onChange={() => { }} onClick={() => { }} />
-                <Historic func={this.alterSection.bind(this)} data={this.props.data} />
+    renderMakeReq() {
+        return (
+            <section id='makeReq'>
+            <div className='containerReq'>
+                <div className='left'>
+                    <div className='back' onClick={() => { this.setState({makeReq: false}) }}>
+                        <img src={back} />
+                    </div>
+                    <SectionHeaderTwo sectionTitle={`Novo Pedido`} />
+                    <img className='ilustrate' src={ilustrate}/>
+                </div>
+                <aside>
+
+                </aside>
+            </div>
                 <style jsx>{indexStyle}</style>
             </section>
-            );
-        }
-        else {
-            return (
-                <section>
-                    <div className='back' onClick={() => { this.alterSection('') }}>
-                        <img src={back}/>
-                    </div>
-                    <SectionHeaderTwo bool={true} sectionTitle={`Pedidos de ${this.props.userData[this.props.userData.length - 1].name.split(' ')[0]}`} />
-                    <RequestList data={this.props.userData}/>
+        );
+    }
+
+    renderSection() {
+        if(!this.state.makeReq) {
+            if (this.props.requestFrom===''){
+                return (
+                <section >
+                    <SectionHeaderTwo sectionTitle={`Olá, ${this.props.name}!`} />
+                    <RequestButton name='FAZER NOVO PEDIDO' onClick={() => { this.setState({makeReq: true})}} />
+                    <SearchBar name='Procure o pedido aqui...' onChange={() => { }} onClick={() => { }} />
+                    <Historic func={this.alterSection.bind(this)} data={this.props.data} />
                     <style jsx>{indexStyle}</style>
                 </section>
-            );
+                );
+            }
+            else {
+                return (
+                    <section>
+                        <div className='back' onClick={() => { this.alterSection('') }}>
+                            <img src={back}/>
+                        </div>
+                        <SectionHeaderTwo sectionTitle={`Pedidos de ${this.props.userData[this.props.userData.length - 1].name.split(' ')[0]}`} />
+                        <RequestList data={this.props.userData}/>
+                        <style jsx>{indexStyle}</style>
+                    </section>
+                );
+            }
+        }
+        else {
+            return(this.renderMakeReq())
         }
     }
 
     render() {
         return (
             <div>
-                {console.log(this.props)}
+                {console.log(this)}
                 <SideMenu onClick={ () => {} }/>
                 <Photo perfil={true} url={this.props.photo} />
                 {this.renderSection()}

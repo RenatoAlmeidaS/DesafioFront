@@ -12,10 +12,12 @@ export const sectionHeaderStyle = css`
   .two {
     margin-top: 0;
     padding-bottom: .7rem;
-    width:14rem;
-    border-bottom: 2px solid #FF8822;
+    margin-bottom: 0;
   }
-  .big {
-    width: 17rem;
+  div div {
+    margin-bottom: 1.5rem;
+    background-color: #FF8822;
+    height:2px;
+    width:14rem;
   }
   `
