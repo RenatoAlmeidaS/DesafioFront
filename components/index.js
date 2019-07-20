@@ -6,6 +6,7 @@ import Photo from './photo';
 import RequestButton from './requestButton';
 import SearchBar from './searchBar';
 import Historic from './historic';
+import RequestList from './requestList';
 
 
 export {
@@ -16,5 +17,6 @@ export {
     Photo,
     RequestButton,
     SearchBar,
-    Historic
+    Historic,
+    RequestList,
 }

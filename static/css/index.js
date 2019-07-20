@@ -7,6 +7,7 @@ import { photoStyle } from './photoStyle';
 import { requestButtonStyle } from './requestButtonStyle';
 import { searchBarStyle } from './searchBarStyle';
 import { historicStyle } from './historicStyle';
+import { requestListStyle } from './requestListStyle';
 
 
 export {
@@ -18,5 +19,6 @@ export {
     photoStyle,
     requestButtonStyle,
     searchBarStyle,
-    historicStyle
+    historicStyle,
+    requestListStyle
 }

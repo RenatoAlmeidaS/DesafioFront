@@ -19,7 +19,8 @@ export default (props) => {
 
     return (
         <div>
-            {data.map((day) => (
+            {
+                data.map((day) => (
                 <div className="container" key={day.date}>
                     <p><mark>{day.date}</mark>, Você vendeu <mark>{toMoney(day.value)}</mark></p>
                     {day.requests.map((request) => (

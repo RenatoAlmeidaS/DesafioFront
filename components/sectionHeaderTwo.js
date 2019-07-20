@@ -6,12 +6,13 @@ import {
 
 export default (props) => {
     const {
-        sectionTitle
+        sectionTitle,
+        bool
     } = props;
 
     return (
         <div>
-            <h1 className='two'>{sectionTitle}</h1>
+            <h1 className={bool ? 'two big' : 'two'} id='title'>{sectionTitle}</h1>
             <style jsx>{sectionHeaderStyle}</style>
         </div>
     )

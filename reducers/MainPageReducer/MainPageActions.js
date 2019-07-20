@@ -4,8 +4,16 @@ export const modifyRequestFrom = requestFrom => (
         requestFrom
     }
 );
+
 export const resetRequestFrom = () => (
     {
         type: 'resetRequestFrom'
+    }
+);
+
+export const modifyUserData = userData => (
+    {
+        type: 'modifyUserData',
+        userData
     }
 );

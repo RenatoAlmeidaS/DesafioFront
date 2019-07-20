@@ -11,7 +11,7 @@ export default (props) => {
 
     return (
         <div>
-            <h1>{sectionTitle}</h1>
+            <h1 id='title'>{sectionTitle}</h1>
             <style jsx>{sectionHeaderStyle}</style>
         </div>
     )
