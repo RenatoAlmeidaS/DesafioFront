@@ -5,16 +5,16 @@ export const indexStyle = css`
     display:flex;
   }
   .back{
-    padding-bottom:1rem;
     width:3rem;
     height:3rem;
+  }
+  .backMakeRequest {
+    position:absolute;
+    top: -3rem;
   }
   .back:hover{
     opacity: .8;
     cursor:pointer;
-  }
-  p {
-    background-color:red;
   }
   section {
     min-height:100vh; 
@@ -31,26 +31,33 @@ export const indexStyle = css`
   }
   .container {
     width:100%;
+    display:flex;
   }
 
   .left {
-    width:50%;
     background-color: white;
-    height: 100vh;
     position:relative;
     display:flex;
     flex-direction:column;
-    padding: 3.5rem 2.5rem 0 2.8rem;
+    padding: 6.5rem 2.5rem 0 2.8rem;
+    flex-grow:1;
+  }
+
+  .left .leftContent {
+    position:fixed;
+    height: 100vh;
   }
 
   .ilustrate {
-    margin: auto;
-	  position: absolute;
-	  top: 0; left: 0; bottom: 0; right: 0;
+    position: absolute;
+    top: 20%;
+    left: 20%;
   }
+
   .containerReq aside {
-    width:50%;
     background-color:#FAFAFA;
     height: 100vh;
+    flex-grow:1;
+    overflow-x:hidden;
   }
   `

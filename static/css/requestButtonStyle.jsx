@@ -13,6 +13,7 @@ export const requestButtonStyle = css`
         font-size:.8rem;
         font-weight:600;
         margin-top: .5rem;
+        margin-bottom: .5rem;
         color: rgba(0, 0, 0, 0.54);
         text-align:left;
         display:flex;

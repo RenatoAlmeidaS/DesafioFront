@@ -4,6 +4,7 @@ export const historicStyle = css`
 
     div {
         width: 100%;
+        overflow-y: auto;
     }
     mark {
         font-weight:bold;

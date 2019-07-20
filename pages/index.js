@@ -4,7 +4,7 @@ import Router from 'next/router';
 
 import { indexStyle } from '../static/css'
 
-import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton, SearchBar, Historic, RequestList } from '../components'
+import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton, SearchBar, Historic, RequestList, MakeRequest } from '../components'
 
 import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
 import { modifyRequestFrom, resetRequestFrom, modifyUserData } from './../reducers/MainPageReducer/MainPageActions';
@@ -16,7 +16,7 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            makeReq: false
+            makeReq: true
         }
     }
 /*    componentDidMount() {
@@ -59,14 +59,16 @@ class Index extends Component {
             <section id='makeReq'>
             <div className='container'>
                 <div className='left'>
-                    <div className='back' onClick={() => { this.setState({makeReq: false}) }}>
-                        <img src={back} />
+                    <div className='leftContent'>
+                            <div className='back backMakeRequest' onClick={() => { this.setState({makeReq: false}) }}>
+                            <img src={back} />
+                        </div>
+                        <SectionHeaderTwo sectionTitle={`Novo Pedido`} />
+                        <img className='ilustrate' src={ilustrate}/>
                     </div>
-                    <SectionHeaderTwo sectionTitle={`Novo Pedido`} />
-                    <img className='ilustrate' src={ilustrate}/>
                 </div>
                 <aside>
-
+                    <MakeRequest/>
                 </aside>
             </div>
                 <style jsx>{indexStyle}</style>
@@ -81,7 +83,7 @@ class Index extends Component {
                 <section >
                     <SectionHeaderTwo sectionTitle={`Olá, ${this.props.name}!`} />
                     <RequestButton name='FAZER NOVO PEDIDO' onClick={() => { this.setState({makeReq: true})}} />
-                    <SearchBar name='Procure o pedido aqui...' onChange={() => { }} onClick={() => { }} />
+                    <SearchBar button={true} name='Procure o pedido aqui...' onChange={() => { }} onClick={() => { }} />
                     <Historic func={this.alterSection.bind(this)} data={this.props.data} />
                     <style jsx>{indexStyle}</style>
                 </section>

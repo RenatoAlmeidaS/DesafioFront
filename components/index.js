@@ -7,6 +7,8 @@ import RequestButton from './requestButton';
 import SearchBar from './searchBar';
 import Historic from './historic';
 import RequestList from './requestList';
+import MakeRequest from './makeRequest';
+import ListProduct from './listProduct';
 
 
 export {
@@ -19,4 +21,6 @@ export {
     SearchBar,
     Historic,
     RequestList,
+    MakeRequest,
+    ListProduct
 }

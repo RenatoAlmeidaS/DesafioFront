@@ -8,6 +8,8 @@ import { requestButtonStyle } from './requestButtonStyle';
 import { searchBarStyle } from './searchBarStyle';
 import { historicStyle } from './historicStyle';
 import { requestListStyle } from './requestListStyle';
+import { makeRequestStyle } from './makeRequestStyle';
+import { listProductStyle } from './listProductStyle';
 
 
 export {
@@ -20,5 +22,7 @@ export {
     requestButtonStyle,
     searchBarStyle,
     historicStyle,
-    requestListStyle
+    requestListStyle,
+    makeRequestStyle,
+    listProductStyle
 }

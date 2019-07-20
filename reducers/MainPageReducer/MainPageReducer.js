@@ -40,7 +40,7 @@ data: [{
                 value: '500',
                 request: '2x sanduíche de pão de arroz, vitamina de goiaba.',
                 photo: '../static/imgs/f4.png',
-                food: '../static/imgs/food1.png',
+                food: '../static/imgs/food2.png',
                 id: '4',
             },
             {
@@ -48,7 +48,7 @@ data: [{
                 value: '790',
                 request: 'cuscuz com calabrasa, suco de maracujá',
                 photo: '../static/imgs/f5.png',
-                food: '../static/imgs/food1.png',
+                food: '../static/imgs/food3.png',
                 id: '1',
             },
             {
@@ -56,14 +56,14 @@ data: [{
                 value: '690',
                 request: '3x bolo frito, café c/ leite.',
                 photo: '../static/imgs/f2.png',
-                food: '../static/imgs/food1.png',
+                food: '../static/imgs/food4.png',
                 id: '2',
             }]
     },
 
 ],
 requestFrom: '',
-userData: []
+userData: [],
 };
 
 export default (state = INITIAL_STATE, action) => {

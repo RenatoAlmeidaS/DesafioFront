@@ -7,7 +7,7 @@ export const searchBarStyle = css`
     .bar {
         border-bottom: 1px solid rgba(0, 0, 0, 0.34);
         height: 3rem;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         color: rgba(0, 0, 0, 0.54);
         display:flex;
         align-items:center;

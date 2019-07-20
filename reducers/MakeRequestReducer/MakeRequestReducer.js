@@ -9,7 +9,8 @@ const INITIAL_STATE = {
                     'Milho', 'Arroz'
                 ]
             },
-            value: '225'
+            value: '225',
+            photo: '../static/imgs/food1.png'
         },
         {
             food: 'Cuscuz completo',
@@ -19,7 +20,8 @@ const INITIAL_STATE = {
                     'Milho', 'Arroz'
                 ]
             },
-            value: '325'
+            value: '325',
+            photo: '../static/imgs/food2.png'
         }]
     },
     {
@@ -32,7 +34,8 @@ const INITIAL_STATE = {
                     'Normal', 'Integral'
                 ]
             },
-            value: '225'
+            value: '225',
+            photo: '../static/imgs/food3.png'
         },
         {
             food: 'Pão caseiro completo',
@@ -42,7 +45,8 @@ const INITIAL_STATE = {
                     'Normal', 'Integral'
                 ]
             },
-            value: '255'
+            value: '255',
+            photo: '../static/imgs/food4.png'
         }
         ]
     }
