@@ -11,6 +11,10 @@ import { requestListStyle } from './requestListStyle';
 import { makeRequestStyle } from './makeRequestStyle';
 import { listProductStyle } from './listProductStyle';
 import { progressBarStyle } from './progressBarStyle';
+import { backArrowStyle } from './backArrowStyle';
+import { productStyle } from './productStyle';
+import { productOptionsStyle } from './productOptionsStyle'
+import { separatorStyle } from './separatorStyle';
 
 
 export {
@@ -26,5 +30,9 @@ export {
     requestListStyle,
     makeRequestStyle,
     listProductStyle,
-    progressBarStyle
+    progressBarStyle,
+    backArrowStyle,
+    productStyle,
+    productOptionsStyle,
+    separatorStyle
 }

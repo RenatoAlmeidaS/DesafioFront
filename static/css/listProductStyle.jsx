@@ -9,7 +9,6 @@ export const listProductStyle = css`
 .category {
   margin-top: 1.5rem;
   font-size:1rem;
-  margin-bottom: 2rem;
 }
 .product {
   display:flex;
@@ -37,15 +36,6 @@ export const listProductStyle = css`
 .container {
   padding-bottom: 3rem;
   position:relative;
-}
-
-.separatorCategory {
-  background-color: rgba(0, 0, 0, 0.08);
-  height: .5rem;
-  width: 150%;
-  left: -5rem;
-  position: absolute;
-  z-index:-10;
 }
 
 .product div {

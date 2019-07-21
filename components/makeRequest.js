@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeRequestStyle } from '../static/css';
 
-import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar } from '../components'
+import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions } from '../components'
+import { decrementScreen, incrementScreen, modifySelectedFood } from './../reducers/MakeRequestReducer/MakeRequestActions';
 
 
 //const add = require('../static/imgs/add.svg')
@@ -10,8 +11,9 @@ import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar } from '../compon
 
 class MakeRequest extends Component {
 
-    selectFood(name) {
-        console.log(name);
+    selectFood(food) {
+        this.props.modifySelectedFood(food);
+        this.props.incrementScreen();
     }
 
     renderPassOne() {
@@ -32,10 +34,27 @@ class MakeRequest extends Component {
         );
     }
 
+    renderPassTwo() {
+        return (
+            <div id='two' className='container'>
+                <BackArrow style='two' onClick={() => { this.props.decrementScreen() }} />
+                <SectionHeaderTwo sectionTitle={`Detalhes do pedido`} />
+                <p>
+                    Aproveite para adicionar alguma observação para este pedido, caso queira.
+                </p>
+                <Product product={this.props.selectedFood} />
+                <ProductOptions options={this.props.selectedFood.options} />
+                <style jsx>{makeRequestStyle}</style>
+            </div>
+        );
+    }
+
     choiceRender() {
-        switch (this.props.pass) {
+        switch (this.props.screen) {
             case 1: 
                 return (this.renderPassOne());
+            case 2:
+                return (this.renderPassTwo());
             default:
                 break;
         }
@@ -43,6 +62,7 @@ class MakeRequest extends Component {
     }
 
     render() {
+        console.log(this);
         return (
             <div>
                 {this.choiceRender()}
@@ -55,9 +75,10 @@ class MakeRequest extends Component {
 const mapStateToProps = state => ({
     foods: state.MakeRequestReducer.foods,
     step: state.MakeRequestReducer.step,
-    pass: state.MakeRequestReducer.screen,
+    screen: state.MakeRequestReducer.screen,
     request: state.MakeRequestReducer.request,
+    selectedFood: state.MakeRequestReducer.selectedFood,
 
 });
 
-export default connect(mapStateToProps, {  })(MakeRequest);
+export default connect(mapStateToProps, { incrementScreen, decrementScreen, modifySelectedFood })(MakeRequest);

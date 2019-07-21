@@ -3,50 +3,54 @@ const INITIAL_STATE = {
         name: 'Cuscuz',
         foods: [{
             food: 'Cuscuz simples',
-            options: {
+            options: [{
                 title: 'Escolha dentre as opções de massas abaixo.',
                 op: [
                     'Milho', 'Arroz'
                 ]
-            },
+            }],
             value: '225',
-            photo: '../static/imgs/food1.png'
+            photo: '../static/imgs/food1.png',
+            selected: false
         },
         {
             food: 'Cuscuz completo',
-            options: {
+            options: [{
                 title: 'Escolha dentre as opções de massas abaixo.',
                 op: [
                     'Milho', 'Arroz'
                 ]
-            },
+            }],
             value: '325',
-            photo: '../static/imgs/food2.png'
+            photo: '../static/imgs/food2.png',
+            selected: false
         }]
     },
     {
         name: 'Pães',
         foods: [{
             food: 'Pão caseiro',
-            options: {
+            options: [{
                 title: 'Escolha entre pão normal e integral.',
                 op: [
                     'Normal', 'Integral'
                 ]
-            },
+            }],
             value: '225',
-            photo: '../static/imgs/food3.png'
+            photo: '../static/imgs/food3.png',
+            selected: false
         },
         {
             food: 'Pão caseiro completo',
-            options: {
+            options: [{
                 title: 'Escolha entre pão normal e integral.',
                 op: [
                     'Normal', 'Integral'
                 ]
-            },
+            }],
             value: '255',
-            photo: '../static/imgs/food4.png'
+            photo: '../static/imgs/food4.png',
+            selected: false
         }
         ]
     }
@@ -56,11 +60,12 @@ const INITIAL_STATE = {
     request: {
         foods: [{
             food: '',
-            options: {
+            options: [{
                 observation: '',
                 op: '',
-                quantity:''
-            },
+                quantity:'',
+                bool: false
+            }],
             value: ''
         }],
         totalValue:'',
@@ -73,12 +78,19 @@ const INITIAL_STATE = {
         date:''
 
     },
+    selectedFood: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'modifyRequestFrom':
             return { ...state, requestFrom: action.requestFrom }
+        case 'modifySelectedFood':
+            return { ...state, selectedFood: action.selectedFood }
+        case 'incrementScreen':
+            return { ...state, screen: state.screen + 1 }         
+        case 'decrementScreen':
+            return { ...state, screen: state.screen - 1 } 
         default:
             break;
     }

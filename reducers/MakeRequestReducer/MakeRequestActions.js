@@ -4,3 +4,22 @@ export const modifyRequestFrom = requestFrom => (
         requestFrom
     }
 );
+
+export const modifySelectedFood = selectedFood => (
+    {
+        type: 'modifySelectedFood',
+        selectedFood
+    }
+);
+
+export const incrementScreen = () => (
+    {
+        type: 'incrementScreen'
+    }
+);
+
+export const decrementScreen = () => (
+    {
+        type: 'decrementScreen'
+    }
+);

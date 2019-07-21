@@ -4,7 +4,7 @@ import {
     listProductStyle
 } from '../static/css';
 
-import Photo from './photo'
+import { Photo, Separator } from '../components'
 
 import { toMoney } from '../general/utils'
 
@@ -24,7 +24,7 @@ export default (props) => {
                         </p>
                         {food.foods.map((e, position) => (
                             <div key={e.food} >
-                                <div className='product'onClick={() => { func(e.food) }}>
+                                <div className='product'onClick={() => { func(e) }}>
                                 <div>
                                     <Photo perfil={false} url={e.photo} />
                                     <p>
@@ -39,7 +39,7 @@ export default (props) => {
                             </div>
                         ))}
                     </div>
-                    <div className='separatorCategory' />
+                    <Separator two={true}/>
                 </div>
             ))}
         <style jsx>{listProductStyle}</style>

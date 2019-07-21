@@ -10,6 +10,10 @@ import RequestList from './requestList';
 import MakeRequest from './makeRequest';
 import ListProduct from './listProduct';
 import ProgressBar from './progressBar';
+import BackArrow from './backArrow';
+import Product from './product';
+import ProductOptions from './productOptions';
+import Separator from './separator';
 
 
 export {
@@ -24,5 +28,9 @@ export {
     RequestList,
     MakeRequest,
     ListProduct,
-    ProgressBar
+    ProgressBar,
+    BackArrow,
+    Product,
+    ProductOptions,
+    Separator,
 }

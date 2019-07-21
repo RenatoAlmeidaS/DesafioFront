@@ -4,26 +4,37 @@ import Router from 'next/router';
 
 import { indexStyle } from '../static/css'
 
-import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton, SearchBar, Historic, RequestList, MakeRequest } from '../components'
+import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton, SearchBar, Historic, RequestList, MakeRequest, BackArrow } from '../components'
 
-import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
 import { modifyRequestFrom, resetRequestFrom, modifyUserData } from './../reducers/MainPageReducer/MainPageActions';
+import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
 
-const back = require('../static/imgs/back.svg')
 const ilustrate = require('../static/imgs/Illustration.png')
 
 class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            makeReq: true
+            makeReq: true,
+            token: ''
         }
     }
 /*    componentDidMount() {
-        if(this.props.token === '') {
+        if(this.props.token === '' && this.state.token === '') {
             Router.push('/login');
         }
+        if (this.state.token !== '') {
+            this.props.modifyToken(this.state.token);
+        }
     }*/
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps.token === '') {
+            this.state.token = this.props.token;
+        }
+        return true;
+    }
+
     prepareUserData(id) {
         let tmp1 = [];
         let name = ''
@@ -60,9 +71,7 @@ class Index extends Component {
             <div className='container'>
                 <div className='left'>
                     <div className='leftContent'>
-                            <div className='back backMakeRequest' onClick={() => { this.setState({makeReq: false}) }}>
-                            <img src={back} />
-                        </div>
+                        <BackArrow style='two' onClick={() => {this.setState({makeReq: false})}}/>
                         <SectionHeaderTwo sectionTitle={`Novo Pedido`} />
                         <img className='ilustrate' src={ilustrate}/>
                     </div>
@@ -80,7 +89,7 @@ class Index extends Component {
         if(!this.state.makeReq) {
             if (this.props.requestFrom===''){
                 return (
-                <section >
+                <section>
                     <SectionHeaderTwo sectionTitle={`Olá, ${this.props.name}!`} />
                     <RequestButton name='FAZER NOVO PEDIDO' onClick={() => { this.setState({makeReq: true})}} />
                     <SearchBar button={true} name='Procure o pedido aqui...' onChange={() => { }} onClick={() => { }} />
@@ -92,9 +101,7 @@ class Index extends Component {
             else {
                 return (
                     <section>
-                        <div className='back' onClick={() => { this.alterSection('') }}>
-                            <img src={back}/>
-                        </div>
+                        <BackArrow style='one' onClick={() => { this.alterSection('') }} />
                         <SectionHeaderTwo sectionTitle={`Pedidos de ${this.props.userData[this.props.userData.length - 1].name.split(' ')[0]}`} />
                         <RequestList data={this.props.userData}/>
                         <style jsx>{indexStyle}</style>
