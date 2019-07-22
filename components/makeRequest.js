@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { makeRequestStyle } from '../static/css';
 
 import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood } from '../components'
-import { decrementScreen, incrementScreen, modifySelectedFood, modifyObs, resetOptions } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen } from './../reducers/MakeRequestReducer/MakeRequestActions';
 
 
 //const add = require('../static/imgs/add.svg')
@@ -13,7 +13,7 @@ class MakeRequest extends Component {
 
     selectFood(food) {
         this.props.modifySelectedFood(food);
-        this.props.incrementScreen();
+        this.props.modifyScreen(2);
     }
 
     renderPassOne() {
@@ -29,7 +29,7 @@ class MakeRequest extends Component {
                 </p>
                 <SearchBar button={false} name='Procure o pedido aqui...'/>
                 <ListProduct func={this.selectFood.bind(this)} data={this.props.foods}/>
-                {this.props.request.totalValue !== '' ? <ConfirmFood  value={this.props.request.totalValue} onClick={() => {}}/> : ''}
+                {this.props.request.totalValue !== '' ? <ConfirmFood  value={this.props.request.totalValue} onClick={() => { console.log('clicou'); this.props.incrementStep(); this.props.modifyScreen(3)}}/> : ''}
                 <style jsx>{makeRequestStyle}</style>
             </div>
         );
@@ -39,7 +39,7 @@ class MakeRequest extends Component {
         return (
             <div>
             <div id='two' className='container'>
-                <BackArrow style='two' onClick={() => { this.props.resetOptions(); this.props.decrementScreen() }} />
+                <BackArrow style='two' onClick={() => { this.props.resetOptions(); this.props.modifyScreen(1) }} />
                 <SectionHeaderTwo sectionTitle={`Detalhes do pedido`} />
                 <p>
                     Aproveite para adicionar alguma observação para este pedido, caso queira.
@@ -101,4 +101,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps, { incrementScreen, decrementScreen, modifySelectedFood, modifyObs, resetOptions })(MakeRequest);
+export default connect(mapStateToProps, { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen })(MakeRequest);

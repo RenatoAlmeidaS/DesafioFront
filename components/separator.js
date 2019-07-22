@@ -6,13 +6,13 @@ import {
 
 export default (props) => {
     const {
-        two
+        two,
+        three
     } = props;
 
     return (
-        <div>
-            <div className={two ? 'two' : 'one'} />
-            <div className='separator' />
+        <div className={two ? 'two' : 'one'} >
+            <div className={three ? 'three' : 'separator'} />
             <style jsx>{separatorStyle}</style>
         </div>
     )

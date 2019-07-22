@@ -15,7 +15,7 @@ export default (props) => {
 
     return (
         <div>
-            <div className='container'>
+            <div className='container' onClick={props.onClick}>
             <p className='value'>
                 Total: {toMoney(value)}
             </p>

@@ -68,7 +68,8 @@ const INITIAL_STATE = {
     selectedFood: '',
     option: '',
     obs: '',
-    amount: 1
+    amount: 1,
+    makeReq: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -77,10 +78,8 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, requestFrom: action.requestFrom }
         case 'modifySelectedFood':
             return { ...state, selectedFood: action.selectedFood }
-        case 'incrementScreen':
-            return { ...state, screen: state.screen + 1 }         
-        case 'decrementScreen':
-            return { ...state, screen: state.screen - 1 }
+        case 'modifyScreen':
+            return { ...state, screen: action.screen }    
         case 'modifyOption':
             return { ...state, option: action.option }
         case 'modifyObs':
@@ -92,7 +91,13 @@ export default (state = INITIAL_STATE, action) => {
         case 'modifyRequestFood':
             return { ...state, request: { ...state.request, foods: action.foods} };
         case 'resetOptions':
-            return { ...state, obs: '', option: '', amount: 1 }
+            return { ...state, obs: '', option: '', amount: 1 }        
+        case 'incrementStep':
+            return { ...state, step: state.step + 1 }
+        case 'decrementStep':
+            return { ...state, step: state.step - 1 }
+        case 'alterMakeRequest':
+            return { ...state, makeReq: !state.makeReq }
         default:
             break;
     }
@@ -116,4 +121,12 @@ export default (state = INITIAL_STATE, action) => {
             name:''
         }
 
+        {
+            food: 'picanha na brasa',
+            options: ['gorda'],
+            quantity: '10',
+            obs: 'no ponto',
+            value: '3000',
+            photo: '../static/imgs/food2.png',
+        }
         */

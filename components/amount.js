@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux'
 
 
-import { incrementAmount, decrementAmount, decrementScreen, resetOptions, modifyRequestFood } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { incrementAmount, decrementAmount, modifyScreen, resetOptions, modifyRequestFood } from './../reducers/MakeRequestReducer/MakeRequestActions';
 import { amountStyle } from '../static/css';
 
 const more = require('../static/imgs/more.png')
@@ -14,11 +14,12 @@ class Amount extends Component {
     markFood() {
         const data = {
             food: this.props.selectedFood.food,
-            options: [{
-                observation: this.props.obs,
-                op: this.props.option,
-                quantity: this.props.amount,
-            }],
+            options: [
+                this.props.option,
+            ],
+            observation: this.props.obs,
+            quantity: this.props.amount,
+            photo: this.props.selectedFood.photo,
             value: this.props.selectedFood.value
         }
         //let foods = this.props.request.foods.push(data);
@@ -50,7 +51,7 @@ class Amount extends Component {
                                 <img src={more} />
                             </div>
                         </div>
-                        <div className='button' onClick={() => { this.markFood(); this.props.decrementScreen()}}>
+                        <div className='button' onClick={() => { this.markFood(); this.props.modifyScreen(1)}}>
                             <p>
                                 Adicionar
                     </p>
@@ -76,4 +77,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps, { decrementScreen, incrementAmount, decrementAmount, resetOptions, modifyRequestFood })(Amount);
+export default connect(mapStateToProps, { modifyScreen, incrementAmount, decrementAmount, resetOptions, modifyRequestFood })(Amount);

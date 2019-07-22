@@ -4,18 +4,17 @@ import Router from 'next/router';
 
 import { indexStyle } from '../static/css'
 
-import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton, SearchBar, Historic, RequestList, MakeRequest, BackArrow } from '../components'
+import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton, SearchBar, Historic, RequestList, MakeRequest, BackArrow, LeftSide } from '../components'
 
 import { modifyRequestFrom, resetRequestFrom, modifyUserData } from './../reducers/MainPageReducer/MainPageActions';
+import { alterMakeRequest } from './../reducers/MakeRequestReducer/MakeRequestActions';
 import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
 
-const ilustrate = require('../static/imgs/Illustration.png')
 
 class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            makeReq: true,
             token: ''
         }
     }
@@ -70,11 +69,7 @@ class Index extends Component {
             <section id='makeReq'>
             <div className='container'>
                 <div className='left'>
-                    <div className='leftContent'>
-                        <BackArrow style='two' onClick={() => {this.setState({makeReq: false})}}/>
-                        <SectionHeaderTwo sectionTitle={`Novo Pedido`} />
-                        <img className='ilustrate' src={ilustrate}/>
-                    </div>
+                <LeftSide/>
                 </div>
                 <aside>
                     <MakeRequest/>
@@ -86,12 +81,12 @@ class Index extends Component {
     }
 
     renderSection() {
-        if(!this.state.makeReq) {
+        if(!this.props.makeReq) {
             if (this.props.requestFrom===''){
                 return (
                 <section>
                     <SectionHeaderTwo sectionTitle={`Olá, ${this.props.name}!`} />
-                    <RequestButton name='FAZER NOVO PEDIDO' onClick={() => { this.setState({makeReq: true})}} />
+                    <RequestButton name='FAZER NOVO PEDIDO' onClick={() => { this.props.alterMakeRequest() }} />
                     <SearchBar button={true} name='Procure o pedido aqui...' onChange={() => { }} onClick={() => { }} />
                     <Historic func={this.alterSection.bind(this)} data={this.props.data} />
                     <style jsx>{indexStyle}</style>
@@ -134,7 +129,9 @@ const mapStateToProps = state => ({
     name: state.MainPageReducer.name,
     data: state.MainPageReducer.data,
     requestFrom: state.MainPageReducer.requestFrom,
-    userData: state.MainPageReducer.userData
+    userData: state.MainPageReducer.userData,
+    screen: state.MakeRequestReducer.screen,
+    makeReq: state.MakeRequestReducer.makeReq
 });
 
-export default connect(mapStateToProps, { modifyToken, modifyRequestFrom, resetRequestFrom, modifyUserData })(Index);
+export default connect(mapStateToProps, { modifyToken, modifyRequestFrom, resetRequestFrom, modifyUserData, alterMakeRequest })(Index);

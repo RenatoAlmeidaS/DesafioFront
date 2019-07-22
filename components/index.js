@@ -16,6 +16,7 @@ import ProductOptions from './productOptions';
 import Separator from './separator';
 import Amount from './amount';
 import ConfirmFood from './confirmFood';
+import LeftSide from './leftSide';
 
 
 export {
@@ -36,5 +37,6 @@ export {
     ProductOptions,
     Separator,
     Amount,
-    ConfirmFood
+    ConfirmFood,
+    LeftSide
 }

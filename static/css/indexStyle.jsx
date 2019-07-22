@@ -34,17 +34,6 @@ export const indexStyle = css`
     z-index:1;
   }
 
-  .left .leftContent {
-    position:fixed;
-    height: 100vh;
-  }
-
-  .ilustrate {
-    position: absolute;
-    top: 20%;
-    left: 20%;
-  }
-
   aside {
     width:50%;
   }

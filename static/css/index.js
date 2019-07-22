@@ -17,6 +17,7 @@ import { productOptionsStyle } from './productOptionsStyle'
 import { separatorStyle } from './separatorStyle';
 import { amountStyle } from './amountStyle';
 import { confirmFoodStyle } from './confirmFoodStyle';
+import { leftSideStyle } from './leftSideStyle';
 
 
 export {
@@ -38,5 +39,6 @@ export {
     productOptionsStyle,
     separatorStyle,
     amountStyle,
-    confirmFoodStyle
+    confirmFoodStyle,
+    leftSideStyle
 }

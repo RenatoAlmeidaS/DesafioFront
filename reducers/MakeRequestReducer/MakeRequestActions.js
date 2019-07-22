@@ -12,15 +12,10 @@ export const modifySelectedFood = selectedFood => (
     }
 );
 
-export const incrementScreen = () => (
+export const modifyScreen = screen => (
     {
-        type: 'incrementScreen'
-    }
-);
-
-export const decrementScreen = () => (
-    {
-        type: 'decrementScreen'
+        type: 'modifyScreen',
+        screen 
     }
 );
 
@@ -58,5 +53,25 @@ export const modifyRequestFood = (foods) => ({
 export const resetOptions = () => (
     {
         type: 'resetOptions'
+    }
+);
+
+
+export const incrementStep = () => (
+    {
+        type: 'incrementStep'
+    }
+);
+
+export const decrementStep = () => (
+    {
+        type: 'decrementStep'
+    }
+);
+
+
+export const alterMakeRequest = () => (
+    {
+        type: 'alterMakeRequest'
     }
 );
