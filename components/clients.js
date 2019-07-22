@@ -30,22 +30,51 @@ class Clients extends Component {
         })
     }
 
-    render() {
+    renderSelect() {
         return (
             <div>
                 {this.props.clients.map((client) => (
                     <div key={client.id}>
-                        <div className='client' onClick={() => {this.selectClient(client); this.props.func()}}>
-                            <Photo marked={client.selected} url={client.photo}/>
+                        <div className='client hover' onClick={() => { this.selectClient(client); this.props.func() }}>
+                            <Photo marked={client.selected} url={client.photo} />
                             <p>
                                 {client.name}
                             </p>
                         </div>
                         <div className='separator' />
                     </div>
-                ))}
+                ))
+                }
                 <style jsx>{clientsStyle}</style>
             </div>
+        )   
+    }
+
+    renderShow() {
+        return (
+            <div>
+                {this.props.request.clients.map((client) => (
+                    <div key={client.id}>
+                        <div className='client'>
+                            <Photo marked={false} url={client.photo} />
+                            <p>
+                                {client.name}
+                            </p>
+                        </div>
+                        <div className='separator' />
+                    </div>
+                ))
+                }
+                <style jsx>{clientsStyle}</style>
+            </div>
+        )
+    }
+
+    render() {
+        return (
+            <div>
+                {this.props.onlyShow ? this.renderShow() : this.renderSelect() }
+            </div >
         )
     }
 }

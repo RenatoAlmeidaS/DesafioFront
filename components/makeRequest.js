@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeRequestStyle } from '../static/css';
 
-import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood, Clients } from '../components'
+import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood, Clients, Button } from '../components'
 import { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen } from './../reducers/MakeRequestReducer/MakeRequestActions';
 
 
-//const add = require('../static/imgs/add.svg')
+const unmark = require('../static/imgs/radio_button_off.svg')
+const mark = require('../static/imgs/radio_button_on.svg')
+const calendar = require('../static/imgs/calendar.svg')
 
 
 class MakeRequest extends Component {
@@ -73,17 +75,49 @@ class MakeRequest extends Component {
                     Pra quem você está vendendo?
                 </p>
                 <SearchBar button={false} name='Procure o cliente aqui...' />
-                <Clients func={this.update.bind(this)}/>
+                <Clients onlyShow={false} func={this.update.bind(this)}/>
                 {this.props.request.clients.length !== 0 ? <ConfirmFood value='' clients={this.props.request.clients.length} onClick={() => { this.props.incrementStep(); this.props.modifyScreen(4) }} /> : ''}
                 <style jsx>{makeRequestStyle}</style>
             </div>
         );
     }
 
+    alterCheckboxPayment(val) {
+        this.props.request.isPay=val;
+        this.forceUpdate();
+    }
+
     renderPassFour() {
         return (
-            <div>
-                passo 4
+            <div id='four' className='container'>
+                <SectionHeaderTwo sectionTitle={`Informações para o pedido`} />
+                <p>
+                    Preencha as informações abaixo para concluir esta venda.
+                </p>
+                <ProgressBar progress={this.props.step} />
+                <p className='bold'>
+                    Qual o status de pagamento?
+                </p>
+                <div className='checkbox' onClick={() => {this.alterCheckboxPayment('false')}}>
+                    <img src={this.props.request.isPay === 'false' ? mark : unmark} />
+                    <p>Não está pago</p>
+                </div>
+                <div className='checkbox' onClick={() => {this.alterCheckboxPayment('true')}}>
+                    <img src={this.props.request.isPay === 'true' ? mark : unmark} />
+                    <p>Já está pago</p>
+                </div>
+                <p className='bold'>
+                    Em qual data foi realizado?
+                </p>
+                <div className='calendar'> 
+                <p className='placeholder'>Data do pedido</p>
+                <input/>
+                    <img src={calendar}/>
+                </div>
+                <div className='button'>
+                <Button save={true} name="SALVAR" bool={this.props.request.isPay!== ''} onClick={() => { console.log('terminou') }} />
+                </div>
+                <style jsx>{makeRequestStyle}</style>
             </div>
         );
     }

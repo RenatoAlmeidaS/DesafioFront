@@ -5,6 +5,9 @@ export const progressBarStyle = css`
     height: .75rem;
 }
 
+.container {
+    margin: 1.5rem 0;
+}
 p { 
     font-size:1rem;
     color:rgba(0, 0, 0, 0.64);

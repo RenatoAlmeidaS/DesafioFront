@@ -4,7 +4,7 @@ export const leftSideStyle = css`
 
   .leftContent {
     position:fixed;
-    height: 100vh;
+    min-height: 100vh;
     font-size: 1rem;
     width: 31%;
   }
@@ -37,6 +37,9 @@ export const leftSideStyle = css`
       align-items:center;
       justify-content:space-between;
       width: 100%;
+  }
+  .product p {
+      margin: 0;
   }
   .product div {
       display: flex;

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { incrementAmount, decrementAmount, modifyScreen, resetOptions, modifyRequestFood, alterMakeRequest } from './../reducers/MakeRequestReducer/MakeRequestActions';
 import { leftSideStyle } from '../static/css';
 
-import { BackArrow, SectionHeaderTwo, Photo, Separator } from '../components'
+import { BackArrow, SectionHeaderTwo, Photo, Separator, Clients } from '../components'
 
 const ilustrate = require('../static/imgs/Illustration.png')
 
@@ -13,6 +13,17 @@ const ilustrate = require('../static/imgs/Illustration.png')
 import { toMoney } from '../general/utils'
 
 class LeftSide extends Component {
+
+    renderClients() {
+        return (
+            <div>
+                <p className='title'>Clientes</p>
+                <Clients onlyShow={true} />
+                <Separator two={true} three={true} />
+                <style jsx>{leftSideStyle}</style>
+            </div>
+        )
+    }
 
     renderResume(){
         return (
@@ -31,6 +42,7 @@ class LeftSide extends Component {
                     </div>
                 ))}
                 <Separator two={true} three={true}/>
+                {this.props.screen === 4 ? this.renderClients() : ''}
                 <div className='totalVal'>
                     <p className='title'>Total</p>
                     <p>{toMoney(this.props.request.totalValue)}</p>

@@ -14,7 +14,7 @@ export const clientsStyle = css`
         margin: 0;
     }
 
-    .client:hover {
+    .hover:hover {
         cursor:pointer;
         opacity: .8;
     }

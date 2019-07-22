@@ -24,6 +24,7 @@ body {
     font-size: .9rem;
     background-color:#FAFAFA;
     overflow-x:hidden;
+    overflow-y: scroll;
 /*  font - size: 14px;  
     font - weight: 400;
     background - color: #FCFCFC;  

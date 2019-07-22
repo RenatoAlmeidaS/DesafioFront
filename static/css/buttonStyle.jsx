@@ -13,6 +13,9 @@ export const buttonStyle = css`
         margin-bottom: 2rem;
         transition: opacity .3s;
     }
+    .button {
+        width: 13rem;
+    }
     #block {
         opacity: .4;
     }

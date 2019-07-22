@@ -7,12 +7,13 @@ import {
 export default (props) => {
     const {
         name,
-        bool
+        bool,
+        save
     } = props;
 
     return (
         <div>
-            <input id={bool ? '' : 'block'} disabled={bool ? false : true} type='submit' placeholder="Nome" name='name' value={name} className='button' onClick= {props.onClick} />
+            <input id={bool ? '' : 'block'} disabled={bool ? false : true} type='submit' placeholder="Nome" name='name' value={name} className={save ? 'button' : ''} onClick= {props.onClick} />
             <style jsx>{buttonStyle}</style>
         </div>
     )
