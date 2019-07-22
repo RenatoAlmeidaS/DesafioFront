@@ -8,19 +8,13 @@ import {
 import { Photo, Separator } from '../components'
 
 import { toMoney } from '../general/utils'
+import { modifyOption } from './../reducers/MakeRequestReducer/MakeRequestActions';
 
 const unmark = require('../static/imgs/radio_button_off.svg')
 const mark = require('../static/imgs/radio_button_on.svg')
 
 
 class ProductOptions extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            option: ''
-        }
-    }
-
     render(){
         console.log(this);
         return (
@@ -38,9 +32,9 @@ class ProductOptions extends Component {
                         </p>
                         <div>
                             {op.op.map((answer) => (
-                                <div className='box' key={answer} onClick={() => { this.setState({ option: answer }) }}>
+                                <div className='box' key={answer} onClick={() => { this.props.modifyOption(answer) }}>
                                     <div className='checkbox'>
-                                        <img src={this.state.option===answer ? mark : unmark} />
+                                        <img src={this.props.option===answer ? mark : unmark} />
                                     </div>
                                     <p>
                                         {answer}
@@ -59,7 +53,8 @@ class ProductOptions extends Component {
 }
 
 const mapStateToProps = state => ({
-    selectedFood: state.MakeRequestReducer.selectedFood
+    selectedFood: state.MakeRequestReducer.selectedFood,
+    option: state.MakeRequestReducer.option
 });
 
-export default connect(mapStateToProps, {})(ProductOptions);
+export default connect(mapStateToProps, { modifyOption })(ProductOptions);

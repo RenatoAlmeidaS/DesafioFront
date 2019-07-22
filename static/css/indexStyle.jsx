@@ -30,6 +30,8 @@ export const indexStyle = css`
     padding: 6.5rem 2.5rem 0 2.8rem;
     min-height:100vh;
     width:50%;
+    position:relative;
+    z-index:1;
   }
 
   .left .leftContent {

@@ -7,12 +7,13 @@ import {
 export default (props) => {
     const {
         url,
-        perfil
+        perfil,
+        marked
     } = props;
 
     return (
         <div>
-            <img src={url} className={perfil ? 'perfil' : ''}/>
+            <img src={marked ? '../static/imgs/confirmed.png' :url} className={perfil ? 'perfil' : ''}/>
             <style jsx>{photoStyle}</style>
         </div>
     )

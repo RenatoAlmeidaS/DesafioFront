@@ -58,27 +58,17 @@ const INITIAL_STATE = {
     step: 1,
     screen: 1,
     request: {
-        foods: [{
-            food: '',
-            options: [{
-                observation: '',
-                op: '',
-                quantity:'',
-                bool: false
-            }],
-            value: ''
-        }],
+        foods: [],
         totalValue:'',
-        clients: [{
-            id:'',
-            photo:'',
-            name:''
-        }],
+        clients: [],
         isPay:false,
         date:''
 
     },
-    selectedFood: ''
+    selectedFood: '',
+    option: '',
+    obs: '',
+    amount: 1
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -90,9 +80,40 @@ export default (state = INITIAL_STATE, action) => {
         case 'incrementScreen':
             return { ...state, screen: state.screen + 1 }         
         case 'decrementScreen':
-            return { ...state, screen: state.screen - 1 } 
+            return { ...state, screen: state.screen - 1 }
+        case 'modifyOption':
+            return { ...state, option: action.option }
+        case 'modifyObs':
+            return { ...state, obs: action.obs }
+        case 'incrementAmount':
+            return { ...state, amount: state.amount + 1 }
+        case 'decrementAmount':
+            return { ...state, amount: state.amount - 1 }
+        case 'modifyRequestFood':
+            return { ...state, request: { ...state.request, foods: action.foods} };
+        case 'resetOptions':
+            return { ...state, obs: '', option: '', amount: 1 }
         default:
             break;
     }
     return state;
 };
+
+
+/*{
+            food: '',
+            options: [{
+                observation: '',
+                op: '',
+                quantity:'',
+            }],
+            value: ''
+        }
+
+        {
+            id:'',
+            photo:'',
+            name:''
+        }
+
+        */

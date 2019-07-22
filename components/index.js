@@ -14,6 +14,8 @@ import BackArrow from './backArrow';
 import Product from './product';
 import ProductOptions from './productOptions';
 import Separator from './separator';
+import Amount from './amount';
+import ConfirmFood from './confirmFood';
 
 
 export {
@@ -33,4 +35,6 @@ export {
     Product,
     ProductOptions,
     Separator,
+    Amount,
+    ConfirmFood
 }

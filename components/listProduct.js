@@ -26,7 +26,7 @@ export default (props) => {
                             <div key={e.food} >
                                 <div className='product'onClick={() => { func(e) }}>
                                 <div>
-                                    <Photo perfil={false} url={e.photo} />
+                                    <Photo marked={e.selected} perfil={false} url={e.photo} />
                                     <p>
                                         {e.food}
                                     </p>

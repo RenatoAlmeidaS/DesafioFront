@@ -15,6 +15,8 @@ import { backArrowStyle } from './backArrowStyle';
 import { productStyle } from './productStyle';
 import { productOptionsStyle } from './productOptionsStyle'
 import { separatorStyle } from './separatorStyle';
+import { amountStyle } from './amountStyle';
+import { confirmFoodStyle } from './confirmFoodStyle';
 
 
 export {
@@ -34,5 +36,7 @@ export {
     backArrowStyle,
     productStyle,
     productOptionsStyle,
-    separatorStyle
+    separatorStyle,
+    amountStyle,
+    confirmFoodStyle
 }

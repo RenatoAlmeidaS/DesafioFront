@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeRequestStyle } from '../static/css';
 
-import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions } from '../components'
-import { decrementScreen, incrementScreen, modifySelectedFood } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood } from '../components'
+import { decrementScreen, incrementScreen, modifySelectedFood, modifyObs, resetOptions } from './../reducers/MakeRequestReducer/MakeRequestActions';
 
 
 //const add = require('../static/imgs/add.svg')
@@ -29,6 +29,7 @@ class MakeRequest extends Component {
                 </p>
                 <SearchBar button={false} name='Procure o pedido aqui...'/>
                 <ListProduct func={this.selectFood.bind(this)} data={this.props.foods}/>
+                {this.props.request.totalValue !== '' ? <ConfirmFood  value={this.props.request.totalValue} onClick={() => {}}/> : ''}
                 <style jsx>{makeRequestStyle}</style>
             </div>
         );
@@ -36,15 +37,30 @@ class MakeRequest extends Component {
 
     renderPassTwo() {
         return (
+            <div>
             <div id='two' className='container'>
-                <BackArrow style='two' onClick={() => { this.props.decrementScreen() }} />
+                <BackArrow style='two' onClick={() => { this.props.resetOptions(); this.props.decrementScreen() }} />
                 <SectionHeaderTwo sectionTitle={`Detalhes do pedido`} />
                 <p>
                     Aproveite para adicionar alguma observação para este pedido, caso queira.
                 </p>
                 <Product product={this.props.selectedFood} />
-                <ProductOptions options={this.props.selectedFood.options} />
+                <ProductOptions />
+                <p className='obsText'>
+                    Observações
+                </p>
+                <input placeholder='Observações' className='obs' onChange={(e) => { this.props.modifyObs(e.target.value)}}/>
+                </div>
+                {this.props.option !== '' ? <Amount/> : ''}
                 <style jsx>{makeRequestStyle}</style>
+            </div>
+        );
+    }
+
+    renderPassThree() {
+        return (
+            <div>
+                Tela 3
             </div>
         );
     }
@@ -55,6 +71,8 @@ class MakeRequest extends Component {
                 return (this.renderPassOne());
             case 2:
                 return (this.renderPassTwo());
+            case 3:
+                return (this.renderPassThree());
             default:
                 break;
         }
@@ -78,7 +96,9 @@ const mapStateToProps = state => ({
     screen: state.MakeRequestReducer.screen,
     request: state.MakeRequestReducer.request,
     selectedFood: state.MakeRequestReducer.selectedFood,
+    option: state.MakeRequestReducer.option,
+    obs: state.MakeRequestReducer.obs,
 
 });
 
-export default connect(mapStateToProps, { incrementScreen, decrementScreen, modifySelectedFood })(MakeRequest);
+export default connect(mapStateToProps, { incrementScreen, decrementScreen, modifySelectedFood, modifyObs, resetOptions })(MakeRequest);

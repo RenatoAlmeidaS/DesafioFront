@@ -23,3 +23,40 @@ export const decrementScreen = () => (
         type: 'decrementScreen'
     }
 );
+
+export const modifyOption = option => (
+    {
+        type: 'modifyOption',
+        option
+    }
+);
+
+export const modifyObs = obs => (
+    {
+        type: 'modifyObs',
+        obs
+    }
+);
+
+export const incrementAmount = () => (
+    {
+        type: 'incrementAmount'
+    }
+);
+
+export const decrementAmount = () => (
+    {
+        type: 'decrementAmount'
+    }
+);
+
+export const modifyRequestFood = (foods) => ({
+    type: 'modifyRequestFood',
+    foods
+});
+
+export const resetOptions = () => (
+    {
+        type: 'resetOptions'
+    }
+);
