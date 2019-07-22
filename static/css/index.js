@@ -18,6 +18,7 @@ import { separatorStyle } from './separatorStyle';
 import { amountStyle } from './amountStyle';
 import { confirmFoodStyle } from './confirmFoodStyle';
 import { leftSideStyle } from './leftSideStyle';
+import { clientsStyle } from './clientsStyle';
 
 
 export {
@@ -40,5 +41,6 @@ export {
     separatorStyle,
     amountStyle,
     confirmFoodStyle,
-    leftSideStyle
+    leftSideStyle,
+    clientsStyle
 }

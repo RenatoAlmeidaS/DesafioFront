@@ -75,3 +75,10 @@ export const alterMakeRequest = () => (
         type: 'alterMakeRequest'
     }
 );
+
+export const alterClients = clients => {
+    {
+        type: 'alterClients',
+        clients
+    }
+}

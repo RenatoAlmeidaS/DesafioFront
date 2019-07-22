@@ -18,7 +18,8 @@ p {
 }
 
 .inside {
-    transition: width 3s;
+    transition-timing-function: ease-in-out;
+    transition: width 1s;
     width: 0;
     background-color:  #FF8822;
     border-radius: 5px;

@@ -17,7 +17,7 @@ export const makeRequestStyle = css`
     color: rgba(0, 0, 0, 0.87);
   }
 
-  .obsText {
+  #two .obsText {
     color: rgba(0, 0, 0, 0.87);
     font-weight:bold;
     margin-top:2rem;
@@ -25,7 +25,7 @@ export const makeRequestStyle = css`
     position:relative;
   }
 
-  .obs {
+  #two .obs {
     border: 1px solid rgba(0, 0, 0, 0.54);
     box-sizing: border-box;
     border-radius: 5px;
@@ -36,5 +36,15 @@ export const makeRequestStyle = css`
     font-size: 1rem;
     padding-left: 1rem;
     position:relative;
+  }
+
+  #two p {
+    margin: 1.5rem 0;
+  }
+
+  #two .bold {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.87);
   }
   `

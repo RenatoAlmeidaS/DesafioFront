@@ -58,8 +58,15 @@ const INITIAL_STATE = {
     step: 1,
     screen: 1,
     request: {
-        foods: [],
-        totalValue:'',
+        foods: [{
+            food: 'picanha na brasa',
+            options: ['gorda'],
+            quantity: '10',
+            obs: 'no ponto',
+            value: '3000',
+            photo: '../static/imgs/food2.png',
+        }],
+        totalValue:'30000',
         clients: [],
         isPay:false,
         date:''
@@ -69,7 +76,7 @@ const INITIAL_STATE = {
     option: '',
     obs: '',
     amount: 1,
-    makeReq: false,
+    makeReq: true,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -98,6 +105,8 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, step: state.step - 1 }
         case 'alterMakeRequest':
             return { ...state, makeReq: !state.makeReq }
+        case 'alterClients': 
+            return { ...state, request: { ...state.request, clients: action.clients } }
         default:
             break;
     }

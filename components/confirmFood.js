@@ -10,14 +10,15 @@ import { toMoney } from '../general/utils'
 
 export default (props) => {
     const {
-        value
+        value,
+        clients
     } = props;
 
     return (
         <div>
             <div className='container' onClick={props.onClick}>
             <p className='value'>
-                Total: {toMoney(value)}
+                    {value !== '' ? `Total: ${ toMoney(value) }` : (clients===1 ? `1 cliente selecionado` : `${clients} clientes selecionados`) }
             </p>
             <p>
                 Avançar

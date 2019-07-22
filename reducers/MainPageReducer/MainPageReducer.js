@@ -64,6 +64,39 @@ data: [{
 ],
 requestFrom: '',
 userData: [],
+clients: [
+    {
+        name: 'Justine Marshall',
+        photo: '../static/imgs/client1.png',
+        id: '1',
+        selected: false
+    }, 
+    {
+        name: 'Bairam Frootan',
+        photo: '../static/imgs/client2.png',
+        id: '2',
+        selected: false
+    },
+    {
+        name: 'Tua Manuera',
+        photo: '../static/imgs/client3.png',
+        id: '3',
+        selected: false
+    },
+    {
+        name: 'Justine Marshall',
+        photo: '../static/imgs/client1.png',
+        id: '4',
+        selected: false
+    },
+    {
+        name: 'Bairam Frootan',
+        photo: '../static/imgs/client2.png',
+        id: '5',
+        selected: false
+    },
+
+]
 };
 
 export default (state = INITIAL_STATE, action) => {

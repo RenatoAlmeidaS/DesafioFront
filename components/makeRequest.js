@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeRequestStyle } from '../static/css';
 
-import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood } from '../components'
+import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood, Clients } from '../components'
 import { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen } from './../reducers/MakeRequestReducer/MakeRequestActions';
 
 
@@ -29,7 +29,7 @@ class MakeRequest extends Component {
                 </p>
                 <SearchBar button={false} name='Procure o pedido aqui...'/>
                 <ListProduct func={this.selectFood.bind(this)} data={this.props.foods}/>
-                {this.props.request.totalValue !== '' ? <ConfirmFood  value={this.props.request.totalValue} onClick={() => { console.log('clicou'); this.props.incrementStep(); this.props.modifyScreen(3)}}/> : ''}
+                {this.props.request.totalValue !== '' ? <ConfirmFood  value={this.props.request.totalValue} onClick={() => { this.props.incrementStep(); this.props.modifyScreen(3)}}/> : ''}
                 <style jsx>{makeRequestStyle}</style>
             </div>
         );
@@ -57,10 +57,33 @@ class MakeRequest extends Component {
         );
     }
 
+    update() {
+        this.forceUpdate();
+    }
+
     renderPassThree() {
         return (
+            <div id='two' className='container'>
+                <SectionHeaderTwo sectionTitle={`Informações para o pedido`} />                
+                <p>
+                    Preencha as informações abaixo para concluir esta venda.
+                </p>
+                <ProgressBar progress={this.props.step} />
+                <p className='bold'>
+                    Pra quem você está vendendo?
+                </p>
+                <SearchBar button={false} name='Procure o cliente aqui...' />
+                <Clients func={this.update.bind(this)}/>
+                {this.props.request.clients.length !== 0 ? <ConfirmFood value='' clients={this.props.request.clients.length} onClick={() => { this.props.incrementStep(); this.props.modifyScreen(4) }} /> : ''}
+                <style jsx>{makeRequestStyle}</style>
+            </div>
+        );
+    }
+
+    renderPassFour() {
+        return (
             <div>
-                Tela 3
+                passo 4
             </div>
         );
     }
@@ -73,6 +96,8 @@ class MakeRequest extends Component {
                 return (this.renderPassTwo());
             case 3:
                 return (this.renderPassThree());
+            case 4:
+                return (this.renderPassFour());
             default:
                 break;
         }

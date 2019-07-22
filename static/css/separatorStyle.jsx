@@ -15,7 +15,7 @@ export const separatorStyle = css`
     background-color: rgba(0, 0, 0, 0.08);
     height: .5rem;
     width: 150%;
-    right:-3rem;
+    right:-2.8rem;
     position: absolute;
     z-index:-10;
     }

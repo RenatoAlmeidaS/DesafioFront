@@ -34,6 +34,10 @@ class Index extends Component {
         return true;
     }
 
+    componentDidUpdate() {
+        document.documentElement.scrollTop = 0;
+    }
+
     prepareUserData(id) {
         let tmp1 = [];
         let name = ''
