@@ -4,7 +4,7 @@ export const buttonStyle = css`
     input {
         background-color: #FF8822;
         border-radius: 100px;
-        width: 20rem;
+        width: 20.5rem;
         height: 3rem;
         border: none;
         color: white;
@@ -12,9 +12,19 @@ export const buttonStyle = css`
         margin-top: 2rem;
         margin-bottom: 2rem;
         transition: opacity .3s;
+        outline: none;
     }
     .button {
         width: 13rem;
+    }
+
+    .secondary {
+        background-color:transparent;
+        color: rgba(0, 0, 0, 0.87);
+        border: 2px solid rgba(0, 0, 0, 0.87);
+        border-radius: 100px;
+        font-weight:600;
+        margin-right: 1rem;
     }
     #block {
         opacity: .4;

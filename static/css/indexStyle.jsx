@@ -38,4 +38,20 @@ export const indexStyle = css`
     width:50%;
   }
 
+  /* RETURN STYLE */
+
+  .returnContent {
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .returnContent p {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+  }
+
   `

@@ -7,9 +7,10 @@ import { indexStyle } from '../static/css'
 import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton, SearchBar, Historic, RequestList, MakeRequest, BackArrow, LeftSide } from '../components'
 
 import { modifyRequestFrom, resetRequestFrom, modifyUserData } from './../reducers/MainPageReducer/MainPageActions';
-import { alterMakeRequest } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { alterMakeRequest, clearStore } from './../reducers/MakeRequestReducer/MakeRequestActions';
 import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
 
+const ilustrate = require('../static/imgs/Illustration.png')
 
 class Index extends Component {
     constructor(props) {
@@ -68,17 +69,40 @@ class Index extends Component {
         }
     }
 
+    renderLeftRightScreen() {
+        return (
+            <div className='container'>
+                <div className='left'>
+                    <LeftSide />
+                </div>
+                <aside>
+                    <MakeRequest />
+                </aside>
+                <style jsx>{indexStyle}</style>
+            </div>
+        )
+    }
+
+    renderReturnRequestScreen() {
+        return (
+            <div className='container'>
+                <div className='returnContent'>
+                    <img src={ilustrate}/>
+                    <p>Pedido feito com sucesso!</p>
+                    <div>
+                        <Button onClick={() => { this.props.clearStore() }} bool={true} secondary={true}  name="VOLTAR PARA LISTA DE PEDIDOS"/>
+                        <Button onClick={() => { this.props.clearStore(); this.props.alterMakeRequest(); }} bool={true} name="FAZER NOVO PEDIDO"/>
+                    </div>
+                </div>
+                <style jsx>{indexStyle}</style>
+            </div>
+        )
+    }
+
     renderMakeReq() {
         return (
             <section id='makeReq'>
-            <div className='container'>
-                <div className='left'>
-                <LeftSide/>
-                </div>
-                <aside>
-                    <MakeRequest/>
-                </aside>
-            </div>
+                {this.props.screen === 5 ? this.renderReturnRequestScreen() : this.renderLeftRightScreen()}
                 <style jsx>{indexStyle}</style>
             </section>
         );
@@ -138,4 +162,4 @@ const mapStateToProps = state => ({
     makeReq: state.MakeRequestReducer.makeReq
 });
 
-export default connect(mapStateToProps, { modifyToken, modifyRequestFrom, resetRequestFrom, modifyUserData, alterMakeRequest })(Index);
+export default connect(mapStateToProps, { modifyToken, modifyRequestFrom, resetRequestFrom, modifyUserData, alterMakeRequest, clearStore })(Index);
