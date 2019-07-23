@@ -16,7 +16,6 @@ const mark = require('../static/imgs/radio_button_on.svg')
 
 class ProductOptions extends Component {
     render(){
-        console.log(this);
         return (
             <div className='container'>
                 <p className='title'>

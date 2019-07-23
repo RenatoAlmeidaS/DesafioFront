@@ -55,25 +55,13 @@ const INITIAL_STATE = {
         ]
     }
     ],
-    step: 3,
-    screen: 4,
+    step: 1,
+    screen: 1,
     request: {
-        foods: [{
-            food: 'picanha na brasa',
-            options: ['gorda'],
-            quantity: '10',
-            obs: 'no ponto',
-            value: '3000',
-            photo: '../static/imgs/food2.png',
-        }],
-        totalValue:'30000',
-        clients: [{
-            name: 'Bairam Frootan',
-            photo: '../static/imgs/client2.png',
-            id: '5',
-            selected: false
-        }],
-        isPay: 'false',
+        foods: [],
+        totalValue:'',
+        clients: [],
+        isPay: '',
         date:''
 
     },
@@ -81,7 +69,7 @@ const INITIAL_STATE = {
     option: '',
     obs: '',
     amount: 1,
-    makeReq: true,
+    makeReq: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -102,10 +90,10 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, amount: state.amount - 1 }
         case 'modifyRequestFood':
             return { ...state, request: { ...state.request, foods: action.foods} }
-        case 'modifyDate':
-            return { ...state, request: { ...state.request, date: action.date } }
         case 'resetOptions':
             return { ...state, obs: '', option: '', amount: 1 }        
+        case 'clearStore':
+            return { ...state, ...INITIAL_STATE }
         case 'incrementStep':
             return { ...state, step: state.step + 1 }
         case 'decrementStep':
@@ -114,6 +102,18 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, makeReq: !state.makeReq }
         case 'alterClients': 
             return { ...state, request: { ...state.request, clients: action.clients } }
+        case 'modifyTotalValue':
+            return { ...state, request: { ...state.request, totalValue: action.totalValue } }
+        case 'addFoodToRequest':
+            return { ...state, request: { ...state.request, foods: [...state.request.foods, action.food] } }
+        case 'addClientToRequest':
+            return { ...state, request: { ...state.request, clients: [...state.request.clients, action.client] } }
+        case 'removeClientFromRequest':
+            return { ...state, request: { ...state.request, clients: state.request.clients.filter((client, index) => {if(action.index===index){ return false} return true}) } }
+        case 'alterPayment':
+            return { ...state, request: { ...state.request, isPay: action.value } }
+        case 'markFood':
+            return { ...state, foods: state.foods.map((food) => { return { ...food, foods: food.foods.map((e, index) => {if (action.name === e.food) { return { ...e, selected: true } } return e }) }}) }
         default:
             break;
     }

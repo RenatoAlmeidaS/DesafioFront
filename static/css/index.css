@@ -31,30 +31,34 @@ body {
     overflow - x: hidden!important;   */
 }
 
-/* font resizing
 
-@media(max - width: 1366px) {
+
+@media(min-width: 1600px) {
     body {
-        font - size: 12px;
+        font-size: 1.2rem;
     }
 }
 
-@media(max - width: 1242px) {
+@media(max-width: 1366px) {
     body {
-        font - size: 10px;
+        font-size: 1rem;
     }
 }
 
-@media(max - width: 908px) {
+@media(max-width: 1242px) {
     body {
-        font - size: 8px;
+        font-size: .875rem;
     }
 }
 
-@media(max - width: 710px) {
+@media(max-width: 908px) {
     body {
-        font - size: 13px;
+        font-size: .75rem;
     }
 }
 
- */
+@media(max-width: 710px) {
+    body {
+        font-size: .8rem;
+    }
+}

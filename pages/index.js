@@ -6,7 +6,7 @@ import { indexStyle } from '../static/css'
 
 import { SectionHeaderTwo, Button, SideMenu, Photo, RequestButton, SearchBar, Historic, RequestList, MakeRequest, BackArrow, LeftSide } from '../components'
 
-import { modifyRequestFrom, resetRequestFrom, modifyUserData } from './../reducers/MainPageReducer/MainPageActions';
+import { modifyRequestFrom, resetRequestFrom, modifyUserData, clearMainStore } from './../reducers/MainPageReducer/MainPageActions';
 import { alterMakeRequest, clearStore } from './../reducers/MakeRequestReducer/MakeRequestActions';
 import { modifyToken } from '../reducers/AutenticationReducer/AutenticationActions';
 
@@ -90,8 +90,8 @@ class Index extends Component {
                     <img src={ilustrate}/>
                     <p>Pedido feito com sucesso!</p>
                     <div>
-                        <Button onClick={() => { this.props.clearStore() }} bool={true} secondary={true}  name="VOLTAR PARA LISTA DE PEDIDOS"/>
-                        <Button onClick={() => { this.props.clearStore(); this.props.alterMakeRequest(); }} bool={true} name="FAZER NOVO PEDIDO"/>
+                        <Button onClick={() => { this.props.clearStore(); this.props.clearMainStore(); }} bool={true} secondary={true}  name="VOLTAR PARA LISTA DE PEDIDOS"/>
+                        <Button onClick={() => { this.props.clearStore(); this.props.clearMainStore(); this.props.alterMakeRequest(); }} bool={true} name="FAZER NOVO PEDIDO"/>
                     </div>
                 </div>
                 <style jsx>{indexStyle}</style>
@@ -140,7 +140,6 @@ class Index extends Component {
     render() {
         return (
             <div>
-                {console.log(this)}
                 <SideMenu onClick={ () => {} }/>
                 <Photo perfil={true} url={this.props.photo} />
                 {this.renderSection()}
@@ -162,4 +161,4 @@ const mapStateToProps = state => ({
     makeReq: state.MakeRequestReducer.makeReq
 });
 
-export default connect(mapStateToProps, { modifyToken, modifyRequestFrom, resetRequestFrom, modifyUserData, alterMakeRequest, clearStore })(Index);
+export default connect(mapStateToProps, { modifyToken, modifyRequestFrom, resetRequestFrom, modifyUserData, alterMakeRequest, clearStore, clearMainStore })(Index);

@@ -107,6 +107,12 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, requestFrom: '' }
         case 'modifyUserData':
             return { ...state, userData: action.userData }
+        case 'clearMainStore': 
+            return {...state, ...INITIAL_STATE }
+        case 'markClient': 
+            return { ...state, clients: state.clients.map((client, index) => { if (action.index === client.id) { return { ...client, selected:true } } return client; }) }
+        case 'unmarkClient':
+            return { ...state, clients: state.clients.map((client, index) => { if (action.index === client.id) { return { ...client, selected:false } } return client; }) }
         default:
             break;
     }

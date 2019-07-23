@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { makeRequestStyle } from '../static/css';
 
 import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood, Clients, Button, CalendarAppetit } from '../components'
-import { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen, alterPayment } from './../reducers/MakeRequestReducer/MakeRequestActions';
 
 
 const unmark = require('../static/imgs/radio_button_off.svg')
@@ -58,9 +58,7 @@ class MakeRequest extends Component {
         );
     }
 
-    update() {
-        this.forceUpdate();
-    }
+    
 
     renderPassThree() {
         return (
@@ -74,16 +72,11 @@ class MakeRequest extends Component {
                     Pra quem você está vendendo?
                 </p>
                 <SearchBar button={false} name='Procure o cliente aqui...' />
-                <Clients onlyShow={false} func={this.update.bind(this)}/>
-                {this.props.request.clients.length !== 0 ? <ConfirmFood value='' clients={this.props.request.clients.length} onClick={() => { this.props.incrementStep(); this.props.request.date=moment.format('DD/MM/YYYY'); this.props.modifyScreen(4) }} /> : ''}
+                <Clients onlyShow={false}/>
+                {this.props.request.clients.length !== 0 ? <ConfirmFood value='' clients={this.props.request.clients.length} onClick={() => { this.props.incrementStep(); this.props.modifyScreen(4) }} /> : ''}
                 <style jsx>{makeRequestStyle}</style>
             </div>
         );
-    }
-
-    alterCheckboxPayment(val) {
-        this.props.request.isPay=val;
-        this.forceUpdate();
     }
 
     renderPassFour() {
@@ -97,20 +90,20 @@ class MakeRequest extends Component {
                 <p className='bold'>
                     Qual o status de pagamento?
                 </p>
-                <div className='checkbox' onClick={() => {this.alterCheckboxPayment('false')}}>
+                <div className='checkbox' onClick={() => {this.props.alterPayment('false')}}>
                     <img src={this.props.request.isPay === 'false' ? mark : unmark} />
                     <p>Não está pago</p>
                 </div>
-                <div className='checkbox' onClick={() => {this.alterCheckboxPayment('true')}}>
+                <div className='checkbox' onClick={() => {this.props.alterPayment('true')}}>
                     <img src={this.props.request.isPay === 'true' ? mark : unmark} />
                     <p>Já está pago</p>
                 </div>
                 <p className='bold'>
                     Em qual data foi realizado?
                 </p>
-                <CalendarAppetit onChange={e => {}}/>
+                <CalendarAppetit/>
                 <div className='button'>
-                <Button save={true} name="SALVAR" bool={this.props.request.isPay!== ''} onClick={() => { console.log('terminou') }} />
+                <Button save={true} name="SALVAR" bool={this.props.request.isPay!== ''} onClick={() => { console.log('requisição'); console.log(this.props.request); this.props.modifyScreen(5); }} />
                 </div>
                 <style jsx>{makeRequestStyle}</style>
             </div>
@@ -134,7 +127,6 @@ class MakeRequest extends Component {
     }
 
     render() {
-        console.log(this);
         return (
             <div>
                 {this.choiceRender()}
@@ -155,4 +147,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps, { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen })(MakeRequest);
+export default connect(mapStateToProps, { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen, alterPayment })(MakeRequest);

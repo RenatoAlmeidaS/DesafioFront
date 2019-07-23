@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Calendar from 'react-calendar/dist/entry.nostyle';
 import moment from 'moment'; 
-import { modifyDate } from '../reducers/MakeRequestReducer/MakeRequestActions'
 
 import {
     calendarAppetitStyle
@@ -50,7 +49,7 @@ class CalendarAppetit extends Component {
                         <div onClick={() => { this.setState({ calendar: false }) }}>
                         CANCELAR
                     </div>
-                        <div onClick={() => { if(this.state.calenVal !== '') {this.props.request.date = moment(this.state.calenVal)} this.setState({calendar: false})}}>
+                        <div onClick={() => { if(this.state.calenVal !== '') {this.props.request.date=moment(this.state.calenVal)} this.setState({calendar: false})}}>
                         ESCOLHER
                     </div>
                     </div>
@@ -65,4 +64,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps, { modifyDate })(CalendarAppetit);
+export default connect(mapStateToProps, { })(CalendarAppetit);

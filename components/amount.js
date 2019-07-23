@@ -2,8 +2,9 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux'
 
 
-import { incrementAmount, decrementAmount, modifyScreen, resetOptions, modifyRequestFood } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { incrementAmount, decrementAmount, modifyScreen, resetOptions, modifyRequestFood, modifyTotalValue, addFoodToRequest } from './../reducers/MakeRequestReducer/MakeRequestActions';
 import { amountStyle } from '../static/css';
+import { markFood } from './../reducers/MakeRequestReducer/MakeRequestActions';
 
 const more = require('../static/imgs/more.png')
 const less = require('../static/imgs/less.png')
@@ -22,14 +23,12 @@ class Amount extends Component {
             photo: this.props.selectedFood.photo,
             value: this.props.selectedFood.value
         }
-        //let foods = this.props.request.foods.push(data);
-        //this.props.modifyRequestFood(foods);
-        this.props.request.totalValue = this.props.request.totalValue*1 + (this.props.selectedFood.value*this.props.amount);
-        this.props.request.foods.push(data);
+        this.props.modifyTotalValue(this.props.request.totalValue*1 + (this.props.amount*this.props.selectedFood.value));
+        this.props.addFoodToRequest(data);
         this.props.foods.map((category) => {
             category.foods.map((food) => {
                 if (food.food === this.props.selectedFood.food) {
-                    food.selected = true;
+                    this.props.markFood(food.food);
                 }
             })
         })
@@ -77,4 +76,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps, { modifyScreen, incrementAmount, decrementAmount, resetOptions, modifyRequestFood })(Amount);
+export default connect(mapStateToProps, { modifyScreen, incrementAmount, decrementAmount, resetOptions, modifyRequestFood, modifyTotalValue, addFoodToRequest,markFood })(Amount);

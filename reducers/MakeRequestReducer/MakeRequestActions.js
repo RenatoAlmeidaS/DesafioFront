@@ -76,16 +76,53 @@ export const alterMakeRequest = () => (
     }
 );
 
-export const alterClients = clients => {
+export const alterClients = clients => (
     {
         type: 'alterClients',
         clients
     }
-}
+)
 
-export const modifyDate = date => {
+export const clearStore = () => (
     {
-        type:'modifyDate',
-        date
+        type: 'clearStore'
     }
-}
+)
+export const modifyTotalValue = totalValue => (
+    {
+        type: 'modifyTotalValue',
+        totalValue
+    }
+)
+export const addFoodToRequest = food => (
+    {
+        type: 'addFoodToRequest',
+        food
+    }
+)
+
+export const addClientToRequest = client => (
+    {
+        type: 'addClientToRequest',
+        client
+    }
+)
+
+export const removeClientFromRequest = index => (
+    {
+        type: 'removeClientFromRequest',
+        index
+    }
+)
+export const alterPayment = value => (
+    {
+        type: 'alterPayment',
+        value
+    }
+)
+export const markFood = name => (
+    {
+        type: 'markFood',
+        name
+    }
+)

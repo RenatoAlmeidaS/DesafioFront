@@ -6,22 +6,24 @@ import {
 } from '../static/css'; 
 
 import { Photo } from '../components'
-import { alterClients } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { alterClients, addClientToRequest, removeClientFromRequest } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { markClient, unmarkClient } from './../reducers/MainPageReducer/MainPageActions';
 
 
 class Clients extends Component {
     selectClient(client) {
         this.props.clients.map((e) => {
             if(e.id === client.id) {
-                e.selected = !e.selected;
-                if(e.selected === true) {
-                    this.props.request.clients.push(client);
+                if (!e.selected) {
+                    this.props.markClient(e.id);
+                    this.props.addClientToRequest(client);
                     return ;
                 }
                 else {
+                    this.props.unmarkClient(e.id);
                     this.props.request.clients.map((cli, position) => {
                         if(cli.id === client.id) {
-                            this.props.request.clients.splice(position, 1);
+                            this.props.removeClientFromRequest(position);
                             return;
                         }
                     })
@@ -35,7 +37,7 @@ class Clients extends Component {
             <div>
                 {this.props.clients.map((client) => (
                     <div key={client.id}>
-                        <div className='client hover' onClick={() => { this.selectClient(client); this.props.func() }}>
+                        <div className='client hover' onClick={() => { this.selectClient(client);}}>
                             <Photo marked={client.selected} url={client.photo} />
                             <p>
                                 {client.name}
@@ -84,4 +86,4 @@ clients: state.MainPageReducer.clients,
 request: state.MakeRequestReducer.request
 });
 
-export default connect(mapStateToProps, { alterClients })(Clients);
+export default connect(mapStateToProps, { alterClients, addClientToRequest, removeClientFromRequest, markClient, unmarkClient  })(Clients);

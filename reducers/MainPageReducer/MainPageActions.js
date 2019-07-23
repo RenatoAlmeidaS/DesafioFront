@@ -17,3 +17,24 @@ export const modifyUserData = userData => (
         userData
     }
 );
+
+export const clearMainStore = () => (
+    {
+        type: 'clearMainStore'
+    }
+);
+
+export const markClient = (index) => (
+    {
+        type: 'markClient',
+        index
+    }
+);
+
+export const unmarkClient = (index) => (
+    {
+        type: 'unmarkClient',
+        index
+    }
+);
+
