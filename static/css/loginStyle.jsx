@@ -21,6 +21,7 @@ export const loginStyle = css`
   input {
     width:100%;
     height: 3.2rem;
+    min-height: 3.2rem;
     padding-left: .8rem;
     border: 1px solid rgba(0, 0, 0, 0.54);
     box-sizing: border-box;
@@ -44,6 +45,7 @@ export const loginStyle = css`
     border: 2px solid #FF8822;
     box-shadow: 0 0 0 0;
     outline: 0;
+    height: 3.2rem;
   }
 
   a {
@@ -55,4 +57,15 @@ export const loginStyle = css`
   }
   .footer {
     margin-bottom:2.5rem;
-  }`
+  }
+  
+  /*MOBILE*/
+
+  @media (width < 600px) {
+    .container {
+      width: 100%;
+      padding: 0 1rem;
+    }
+  }
+
+  `

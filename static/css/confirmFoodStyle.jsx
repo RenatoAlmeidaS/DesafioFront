@@ -29,4 +29,12 @@ export const confirmFoodStyle = css`
      margin-left: 1.5rem;
      margin-right: 2rem;   
  }
+
+ /*MOBLE */ 
+ @media (width< 600px) {
+     .container {
+         width: 100%;
+     }
+
+ }
  `

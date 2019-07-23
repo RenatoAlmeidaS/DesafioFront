@@ -11,8 +11,11 @@ export const leftSideStyle = css`
 
   .ilustrate {
     position: absolute;
-    top: 20%;
-    left: 12%;
+    top: 18%;
+    left: 18%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
   }
   .foodName {
       color:rgba(0, 0, 0, 0.87);

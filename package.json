@@ -11,6 +11,21 @@
   ],
   "author": "Renato Almeida",
   "license": "MIT",
+  "babel": {
+    "presets": [
+      [
+        "next/babel",
+        {
+          "preset-env": {},
+          "styled-jsx": {
+            "plugins": [
+              "styled-jsx-plugin-postcss"
+            ]
+          }
+        }
+      ]
+    ]
+  },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "babel-loader": "^8.0.6",
@@ -21,10 +36,14 @@
     "next-images": "^1.1.2",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "next-routes": "^1.4.2",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
     "react": "^16.8.6",
     "react-calendar": "^2.19.0",
     "react-dom": "^16.8.6",
+    "react-media": "^1.9.2",
     "react-redux": "^7.1.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "styled-jsx-plugin-postcss": "^2.0.1"
   }
 }

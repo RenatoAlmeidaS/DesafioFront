@@ -2,9 +2,9 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux'
 
 
-import { incrementAmount, decrementAmount, modifyScreen, resetOptions, modifyRequestFood, alterMakeRequest } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { incrementAmount, decrementAmount, modifyScreen, resetOptions, modifyRequestFood, alterMakeRequest, clearStore } from './../reducers/MakeRequestReducer/MakeRequestActions';
 import { leftSideStyle } from '../static/css';
-
+import { clearMainStore } from './../reducers/MainPageReducer/MainPageActions';
 import { BackArrow, SectionHeaderTwo, Photo, Separator, Clients } from '../components'
 
 const ilustrate = require('../static/imgs/Illustration.png')
@@ -51,13 +51,22 @@ class LeftSide extends Component {
             </div>
         );
     }
+    renderIlustrate() {
+        return (
+            <div className='ilustrate'>
+                <img src={ilustrate} /> 
+                <p>Acompanhe aqui um resumo desta venda.</p>
+                <style jsx>{leftSideStyle}</style>
+            </div>
+        )
+    }
 
     render() {
         return (
             <div className='leftContent'>
-                <BackArrow style='two' onClick={() => { this.props.alterMakeRequest() }} />
+                <BackArrow style='two' onClick={() => { this.props.clearStore(); this.props.clearMainStore(); this.props.alterMakeRequest() }} />
                 <SectionHeaderTwo sectionTitle={`Novo Pedido`} />
-                {this.props.screen < 3 ? <img className='ilustrate' src={ilustrate} /> : this.renderResume()}
+                {this.props.screen < 3 ? this.renderIlustrate() : this.renderResume()}
                 <style jsx>{leftSideStyle}</style>
             </div>
         )
@@ -75,4 +84,4 @@ const mapStateToProps = state => ({
     makeReq: state.MakeRequestReducer.makeReq
 });
 
-export default connect(mapStateToProps, { modifyScreen, incrementAmount, decrementAmount, resetOptions, modifyRequestFood, alterMakeRequest })(LeftSide);
+export default connect(mapStateToProps, { modifyScreen, incrementAmount, decrementAmount, resetOptions, modifyRequestFood, alterMakeRequest, clearMainStore, clearStore })(LeftSide);

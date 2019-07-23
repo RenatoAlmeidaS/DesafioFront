@@ -69,4 +69,11 @@ export const makeRequestStyle = css`
     display:flex;
     justify-content: flex-end;
   }
+
+  /* MOBILE */
+@media (width < 600px) {
+  .container {
+    padding: 1rem;
+  }
+}
   `

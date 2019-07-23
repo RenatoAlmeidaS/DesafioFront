@@ -8,12 +8,13 @@ export default (props) => {
     const {
         url,
         perfil,
-        marked
+        marked,
+        onReq
     } = props;
 
     return (
-        <div>
-            <img src={marked ? '../static/imgs/confirmed.png' :url} className={perfil ? 'perfil' : ''}/>
+        <div className={perfil ? (onReq ? 'perfil onreq' : 'perfil') : ''}>
+            <img src={marked ? '../static/imgs/confirmed.png' :url} />
             <style jsx>{photoStyle}</style>
         </div>
     )

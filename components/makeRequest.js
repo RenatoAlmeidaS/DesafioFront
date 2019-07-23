@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { makeRequestStyle } from '../static/css';
 
 import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood, Clients, Button, CalendarAppetit } from '../components'
-import { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen, alterPayment } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen, alterPayment, clearStore, alterMakeRequest } from './../reducers/MakeRequestReducer/MakeRequestActions';
+import { clearMainStore } from './../reducers/MainPageReducer/MainPageActions';
 
 
 const unmark = require('../static/imgs/radio_button_off.svg')
@@ -20,6 +21,7 @@ class MakeRequest extends Component {
     renderPassOne() {
         return (
             <div id='one' className='container'>
+                <BackArrow style='one' onClick={() => { this.props.clearStore(); this.props.clearMainStore();}} />
                 <SectionHeaderTwo sectionTitle={`Informações para o pedido`} />
                 <p>
                     Preencha as informações abaixo para concluir esta venda.
@@ -147,4 +149,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps, { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen, alterPayment })(MakeRequest);
+export default connect(mapStateToProps, { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen, alterPayment, alterMakeRequest, clearStore, clearMainStore })(MakeRequest);

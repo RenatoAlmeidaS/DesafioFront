@@ -16,4 +16,12 @@ export const backArrowStyle = css`
     opacity: .8;
     cursor:pointer;
   }
+
+  @media (width < 600px) {
+    .two {
+      position:relative;
+      transform: translate(0, 1rem);
+
+    }
+  }
  `

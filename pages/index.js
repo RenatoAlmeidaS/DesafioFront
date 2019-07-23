@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Router from 'next/router';
+import Media from 'react-media';
 
 import { indexStyle } from '../static/css'
 
@@ -89,9 +90,9 @@ class Index extends Component {
                 <div className='returnContent'>
                     <img src={ilustrate}/>
                     <p>Pedido feito com sucesso!</p>
-                    <div>
-                        <Button onClick={() => { this.props.clearStore(); this.props.clearMainStore(); }} bool={true} secondary={true}  name="VOLTAR PARA LISTA DE PEDIDOS"/>
-                        <Button onClick={() => { this.props.clearStore(); this.props.clearMainStore(); this.props.alterMakeRequest(); }} bool={true} name="FAZER NOVO PEDIDO"/>
+                    <div className='buttons'>
+                        <Button noMargin={true} onClick={() => { this.props.clearStore(); this.props.clearMainStore(); }} bool={true} secondary={true}  name="VOLTAR PARA LISTA DE PEDIDOS"/>
+                        <Button noMargin={true} onClick={() => { this.props.clearStore(); this.props.clearMainStore(); this.props.alterMakeRequest(); }} bool={true} name="FAZER NOVO PEDIDO"/>
                     </div>
                 </div>
                 <style jsx>{indexStyle}</style>
@@ -140,8 +141,8 @@ class Index extends Component {
     render() {
         return (
             <div>
-                <SideMenu onClick={ () => {} }/>
-                <Photo perfil={true} url={this.props.photo} />
+                <SideMenu onClick={() => { }} />
+                {this.props.makeReq ? <Photo onReq={true} perfil={true} url={this.props.photo} /> : <Photo perfil={true} url={this.props.photo} />}
                 {this.renderSection()}
                 <style jsx>{ indexStyle }</style>
             </div>

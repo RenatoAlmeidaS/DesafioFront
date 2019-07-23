@@ -30,7 +30,7 @@ export default (props) => {
                                 <p>
                                     <mark>{request.name}</mark>
                                 </p>
-                                <p>
+                                    <p>
                                     {request.request}
                                 </p>
                             </div>

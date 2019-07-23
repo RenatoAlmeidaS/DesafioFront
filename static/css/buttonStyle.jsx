@@ -36,4 +36,12 @@ export const buttonStyle = css`
         cursor: pointer;
         opacity: .8;
     }
+/*MOBILE */
+
+@media(width < 600px) {
+    .noMargin{
+        margin:0;
+        margin-bottom: 1rem;
+    }
+}
  `

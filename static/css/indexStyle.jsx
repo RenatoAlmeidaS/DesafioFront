@@ -9,13 +9,12 @@ export const indexStyle = css`
     display: flex;
     flex-direction: column; 
     width: 100%;
-    align-items: flexStart;
     padding: 4.5rem 2.5rem 0 23.5rem;
   }
 
   #makeReq {
     padding: 0;
-    margin-left:19rem;
+    margin-left:21rem;
   }
   .container {
     width:100%;
@@ -54,4 +53,36 @@ export const indexStyle = css`
     margin-bottom: .5rem;
   }
 
+
+  /*MOBILE*/
+  @media (width < 600px) {
+    section {
+      padding: 1rem;
+    }
+    .left {
+      display:none;
+    }
+    aside {
+      width: 100%;
+    }
+    #makeReq {
+      margin: 0;
+    }
+
+    .buttons {
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      padding-bottom: 1.5rem;
+    }
+    .returnContent {
+      justify-content:flex-end;
+      box-sizing: border-box;
+      overflow-y: hidden;
+      height:100vh;
+    }
+    .returnContent p {
+      margin-bottom: 5rem;
+    }
+  }
   `

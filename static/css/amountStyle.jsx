@@ -59,4 +59,19 @@ export const amountStyle = css`
         display: flex;
         align-items:center;
     }
+
+/*MOBILE */
+
+@media(width < 600px) {
+    .button {
+        margin-left: 0;
+        width: 11.5rem;
+    }
+    .content {
+        width: 100%;
+        padding: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}
  `

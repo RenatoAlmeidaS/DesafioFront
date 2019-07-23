@@ -18,4 +18,14 @@ div {
   right: 2.5rem;
   top: 1rem;
 }
+
+/*MOBILE*/
+@media (width < 600px) {
+  .perfil {
+    right: 1rem;
+}
+.onreq {
+  display:none;
+}
+}
   `
