@@ -82,3 +82,10 @@ export const alterClients = clients => {
         clients
     }
 }
+
+export const modifyDate = date => {
+    {
+        type:'modifyDate',
+        date
+    }
+}

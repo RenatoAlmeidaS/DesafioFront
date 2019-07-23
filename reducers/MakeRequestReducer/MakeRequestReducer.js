@@ -55,13 +55,25 @@ const INITIAL_STATE = {
         ]
     }
     ],
-    step: 1,
-    screen: 1,
+    step: 3,
+    screen: 4,
     request: {
-        foods: [],
-        totalValue:'',
-        clients: [],
-        isPay: '',
+        foods: [{
+            food: 'picanha na brasa',
+            options: ['gorda'],
+            quantity: '10',
+            obs: 'no ponto',
+            value: '3000',
+            photo: '../static/imgs/food2.png',
+        }],
+        totalValue:'30000',
+        clients: [{
+            name: 'Bairam Frootan',
+            photo: '../static/imgs/client2.png',
+            id: '5',
+            selected: false
+        }],
+        isPay: 'false',
         date:''
 
     },
@@ -69,7 +81,7 @@ const INITIAL_STATE = {
     option: '',
     obs: '',
     amount: 1,
-    makeReq: false,
+    makeReq: true,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -89,7 +101,9 @@ export default (state = INITIAL_STATE, action) => {
         case 'decrementAmount':
             return { ...state, amount: state.amount - 1 }
         case 'modifyRequestFood':
-            return { ...state, request: { ...state.request, foods: action.foods} };
+            return { ...state, request: { ...state.request, foods: action.foods} }
+        case 'modifyDate':
+            return { ...state, request: { ...state.request, date: action.date } }
         case 'resetOptions':
             return { ...state, obs: '', option: '', amount: 1 }        
         case 'incrementStep':

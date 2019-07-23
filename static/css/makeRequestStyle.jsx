@@ -64,40 +64,7 @@ export const makeRequestStyle = css`
     margin:0 1rem;
   }
 
-  #four .calendar {
-    background-color: white;
-    width: 100%;
-    height: 3.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    display: flex;
-    align-items:center;
-    justify-content:space-between;
-    position:relative;
-  }
-  .calendar input {
-    border: none;
-    font-size: 1rem;
-    padding-left: 1rem;
-    width: 100%;
-    box-shadow: 0 0 0 0;
-    outline: 0;
-    height: 100%;
-  }
-  .calendar .placeholder {
-    font-size: .75rem;
-    position: absolute;
-    transform: translate(.5rem, -2.5rem);
-    background: linear-gradient(180deg, #fafafa 50%, white 50%);
-    padding: 0 .3rem;
-  }
-
-  .calendar img:hover {
-    cursor: pointer;
-    opacity:.8;
-  }
-
-  #four .button {
+  .button {
     width: 100%;
     display:flex;
     justify-content: flex-end;

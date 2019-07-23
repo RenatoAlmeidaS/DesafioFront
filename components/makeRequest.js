@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeRequestStyle } from '../static/css';
 
-import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood, Clients, Button } from '../components'
+import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood, Clients, Button, CalendarAppetit } from '../components'
 import { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen } from './../reducers/MakeRequestReducer/MakeRequestActions';
 
 
 const unmark = require('../static/imgs/radio_button_off.svg')
 const mark = require('../static/imgs/radio_button_on.svg')
-const calendar = require('../static/imgs/calendar.svg')
 
 
 class MakeRequest extends Component {
@@ -76,7 +75,7 @@ class MakeRequest extends Component {
                 </p>
                 <SearchBar button={false} name='Procure o cliente aqui...' />
                 <Clients onlyShow={false} func={this.update.bind(this)}/>
-                {this.props.request.clients.length !== 0 ? <ConfirmFood value='' clients={this.props.request.clients.length} onClick={() => { this.props.incrementStep(); this.props.modifyScreen(4) }} /> : ''}
+                {this.props.request.clients.length !== 0 ? <ConfirmFood value='' clients={this.props.request.clients.length} onClick={() => { this.props.incrementStep(); this.props.request.date=moment.format('DD/MM/YYYY'); this.props.modifyScreen(4) }} /> : ''}
                 <style jsx>{makeRequestStyle}</style>
             </div>
         );
@@ -109,11 +108,7 @@ class MakeRequest extends Component {
                 <p className='bold'>
                     Em qual data foi realizado?
                 </p>
-                <div className='calendar'> 
-                <p className='placeholder'>Data do pedido</p>
-                <input/>
-                    <img src={calendar}/>
-                </div>
+                <CalendarAppetit onChange={e => {}}/>
                 <div className='button'>
                 <Button save={true} name="SALVAR" bool={this.props.request.isPay!== ''} onClick={() => { console.log('terminou') }} />
                 </div>

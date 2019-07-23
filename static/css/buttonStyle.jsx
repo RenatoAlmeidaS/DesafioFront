@@ -24,5 +24,6 @@ export const buttonStyle = css`
     }
     input:hover{
         cursor: pointer;
+        opacity: .8;
     }
  `

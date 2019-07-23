@@ -19,6 +19,7 @@ import { amountStyle } from './amountStyle';
 import { confirmFoodStyle } from './confirmFoodStyle';
 import { leftSideStyle } from './leftSideStyle';
 import { clientsStyle } from './clientsStyle';
+import { calendarAppetitStyle } from './calendarAppetitStyle';
 
 
 export {
@@ -42,5 +43,6 @@ export {
     amountStyle,
     confirmFoodStyle,
     leftSideStyle,
-    clientsStyle
+    clientsStyle,
+    calendarAppetitStyle
 }

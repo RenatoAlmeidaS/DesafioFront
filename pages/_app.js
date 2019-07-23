@@ -5,6 +5,7 @@ import Router from 'next/router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from '../reducers';
+import '../static/css/calendar.css'
 
 export default class MyApp extends App {
 

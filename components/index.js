@@ -18,7 +18,7 @@ import Amount from './amount';
 import ConfirmFood from './confirmFood';
 import LeftSide from './leftSide';
 import Clients from './clients';
-
+import CalendarAppetit from './calendarAppetit';
 
 export {
     SectionHeader,
@@ -40,5 +40,6 @@ export {
     Amount,
     ConfirmFood,
     LeftSide,
-    Clients
+    Clients,
+    CalendarAppetit
 }
