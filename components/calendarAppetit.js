@@ -22,6 +22,9 @@ class CalendarAppetit extends Component {
         const momentDate = moment();
         this.props.request.date = momentDate;
     }
+
+    
+
     render() {
         return (
             <div>
@@ -43,6 +46,19 @@ class CalendarAppetit extends Component {
                         locale={'pt-BR'}
                         onChange={(e) => {this.state.calenVal=e}}
                         value={new Date()}
+                        tileDisabled={({ activeStarDate, date, view }) => {
+                            const activeMoment = moment(activeStarDate);
+                            if (activeMoment.isSame(date, 'day')) {
+                                return false;
+                            }
+                            if (moment(date).diff(activeMoment, 'days') > -3) {
+                                if (moment(date).diff(activeMoment, 'days') > -1) {
+                                    return true;
+                                }
+                                return false;
+                            }
+                            return true;
+                        }}
 
                     />
                     <div className='choices'>

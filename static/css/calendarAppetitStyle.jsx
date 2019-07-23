@@ -53,7 +53,7 @@ export const calendarAppetitStyle = css`
 
     .choices {
         display: flex;
-        margin: 1.75rem 2rem;
+        margin: 0 2rem 1.75rem 0;
         justify-content:flex-end;
         position:relative;
         right:0;
