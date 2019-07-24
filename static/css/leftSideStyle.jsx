@@ -12,7 +12,7 @@ export const leftSideStyle = css`
   .ilustrate {
     position: absolute;
     top: 18%;
-    left: 18%;
+    left: 10%;
     display:flex;
     flex-direction:column;
     align-items: center;

@@ -4,7 +4,7 @@ import { makeRequestStyle } from '../static/css';
 
 import { SectionHeaderTwo, SearchBar, ListProduct, ProgressBar, BackArrow, Product, ProductOptions, Amount, ConfirmFood, Clients, Button, CalendarAppetit } from '../components'
 import { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen, alterPayment, clearStore, alterMakeRequest } from './../reducers/MakeRequestReducer/MakeRequestActions';
-import { clearMainStore } from './../reducers/MainPageReducer/MainPageActions';
+import { clearMainStore, addRequestToHistoricExistent, addRequestToHistoric } from './../reducers/MainPageReducer/MainPageActions';
 
 
 const unmark = require('../static/imgs/radio_button_off.svg')
@@ -65,6 +65,7 @@ class MakeRequest extends Component {
     renderPassThree() {
         return (
             <div id='two' className='container'>
+                <BackArrow style='one' onClick={() => { this.props.clearStore(); this.props.clearMainStore(); }} />
                 <SectionHeaderTwo sectionTitle={`Informações para o pedido`} />                
                 <p>
                     Preencha as informações abaixo para concluir esta venda.
@@ -80,10 +81,32 @@ class MakeRequest extends Component {
             </div>
         );
     }
+    
+/*    saveRequest() {
+        let date = this.props.request.date.format('DD/MM/YYYY');
+        let exist = false;
+        data.map((day)=> {
+            if (day.date===date) {
+                exist = true;
+            }
+        })
+        if (existing){
+            const data = {
+                name: this.props.request.name,
+                value: this.props.request.value,
+                request: 
+                photo: this.props.request.foods[0].photo,
+                food: '../static/imgs/food1.png',
+                id: '1',
+
+            }
+        }
+    }*/
 
     renderPassFour() {
         return (
             <div id='four' className='container'>
+                <BackArrow style='one' onClick={() => { this.props.clearStore(); this.props.clearMainStore(); }} />
                 <SectionHeaderTwo sectionTitle={`Informações para o pedido`} />
                 <p>
                     Preencha as informações abaixo para concluir esta venda.
@@ -105,7 +128,7 @@ class MakeRequest extends Component {
                 </p>
                 <CalendarAppetit/>
                 <div className='button'>
-                <Button save={true} name="SALVAR" bool={this.props.request.isPay!== ''} onClick={() => { console.log('requisição'); console.log(this.props.request); this.props.modifyScreen(5); }} />
+                    <Button save={true} name="SALVAR" bool={this.props.request.isPay !== ''} onClick={() => { console.log('requisição'); console.log(this.props.request); this.props.modifyScreen(5); }} />
                 </div>
                 <style jsx>{makeRequestStyle}</style>
             </div>
@@ -146,7 +169,8 @@ const mapStateToProps = state => ({
     selectedFood: state.MakeRequestReducer.selectedFood,
     option: state.MakeRequestReducer.option,
     obs: state.MakeRequestReducer.obs,
+    data: state.MainPageReducer.data
 
 });
 
-export default connect(mapStateToProps, { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen, alterPayment, alterMakeRequest, clearStore, clearMainStore })(MakeRequest);
+export default connect(mapStateToProps, { modifySelectedFood, modifyObs, resetOptions, incrementStep, modifyScreen, alterPayment, alterMakeRequest, clearStore, clearMainStore, addRequestToHistoric, addRequestToHistoricExistent })(MakeRequest);

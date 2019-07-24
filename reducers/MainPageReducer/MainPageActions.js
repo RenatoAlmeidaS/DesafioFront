@@ -38,3 +38,16 @@ export const unmarkClient = (index) => (
     }
 );
 
+export const addRequestToHistoricExistent = (data) => (
+    {
+        type: 'addRequestToHistoricExistent',
+        data
+    }
+);
+
+export const addRequestToHistoric = (data) => (
+    {
+        type: 'addRequestToHistoric',
+        data
+    }
+);

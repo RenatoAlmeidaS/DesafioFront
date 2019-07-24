@@ -20,14 +20,14 @@ class Index extends Component {
             token: ''
         }
     }
-/*    componentDidMount() {
+    componentDidMount() {
         if(this.props.token === '' && this.state.token === '') {
             Router.push('/login');
         }
         if (this.state.token !== '') {
             this.props.modifyToken(this.state.token);
         }
-    }*/
+    }
 
     shouldComponentUpdate(nextProps, nextState) {
         if(nextProps.token === '') {

@@ -58,6 +58,25 @@ export const loginStyle = css`
   .footer {
     margin-bottom:2.5rem;
   }
+
+  .placeholder {
+    color: rgba(0, 0, 0, 0.87);
+    position: absolute;
+    font-size:1rem;
+    transform: translate(1rem, .8rem);
+  }
+  .text {
+    transform: translate(.5rem, -.6rem);
+    width: 2rem;
+    font-size: .6rem;
+    background: linear-gradient(rgba(255,0,0,0) 8%,#fafafa 9% ,#fafafa 50%, white 50%);
+  }
+  .focus {
+    color: #FF8822;
+  }
+  .input {
+    width: 100%;
+  }
   
   /*MOBILE*/
 

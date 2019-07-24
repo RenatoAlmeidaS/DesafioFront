@@ -17,10 +17,14 @@ class Login extends Component {
         super(props);
         this.inputs = {
             name: '',
-            pass: ''
+            pass: '',
         }
         this.state = {
-            bool:false
+            bool:false,
+            oneFocus: false,
+            oneText: false,
+            twoFocus: false,
+            twoText: false,
         }
         this.updateName = this.updateName.bind(this);
         this.updatePass = this.updatePass.bind(this);
@@ -49,6 +53,33 @@ class Login extends Component {
         this.props.modifyToken(token);
         Router.push('/');
     }
+
+    changePlaceholder(ph, css) {
+        if(ph === 'one') {
+            if(css === 'focus') {
+                this.setState({oneFocus: true, oneText: true})
+            } else {
+                if (this.inputs.name === '') {
+                    this.setState({ oneFocus: false, oneText: false })
+                }
+                else {
+                    this.setState({ oneFocus: false, oneText: true })
+                }
+            }
+        }
+        if (ph === 'two') {
+            if (css === 'focus') {
+                this.setState({ twoFocus: true, twoText: true })
+            } else {
+                if (this.inputs.pass === '') {
+                    this.setState({ twoFocus: false, twoText: false })
+                }
+                else {
+                    this.setState({ twoFocus: false, twoText: true })
+                }
+            }
+        }
+    }
     render() {
         return (
             <div className="container">
@@ -56,8 +87,14 @@ class Login extends Component {
                     <img className="logo" src={logo} /> 
                     <SectionHeader sectionTitle="Seja bem-vindo!"/>
                     <p>Nós sabemos a importância de estar sempre de barriga cheia e o quanto isso pode ajudar no seu dia.</p>
-                    <input required placeholder="Email" type="email" onChange={(input) => this.updateName(input)}></input>
-                    <input required placeholder="Senha" type="password" onChange={(input) => this.updatePass(input)}></input>
+                    <div className='input'>
+                    <p className={this.state.oneText ? (this.state.oneFocus ? 'text focus placeholder' : 'text placeholder') : 'placeholder'}>Email</p>
+                    <input required type="email" onFocus={() => { this.changePlaceholder('one', 'focus') }} onBlur={() => { this.changePlaceholder('one', 'blur') }} onChange={(input) => this.updateName(input)}></input>
+                    </div>
+                    <div className='input'>
+                    <p className={this.state.twoText ? (this.state.twoFocus ? 'text focus placeholder' : 'text placeholder') : 'placeholder'}>Senha</p>
+                    <input onFocus={() => { this.changePlaceholder('two', 'focus') }} onBlur={() => { this.changePlaceholder('two', 'blur') }} required type="password" onChange={(input) => this.updatePass(input)}></input>
+                    </div>
                     <a href="#">RECUPERAR MINHA SENHA</a>
                     <Button name="ENTRAR" bool={this.state.bool} onClick={ () => {this.setToken(this.inputs.name)}}/>
                     <p className="footer">Infoway Gestão em Saúde ©, 2019.</p>

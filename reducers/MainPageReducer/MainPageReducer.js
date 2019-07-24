@@ -113,6 +113,10 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, clients: state.clients.map((client, index) => { if (action.index === client.id) { return { ...client, selected:true } } return client; }) }
         case 'unmarkClient':
             return { ...state, clients: state.clients.map((client, index) => { if (action.index === client.id) { return { ...client, selected:false } } return client; }) }
+        case 'addRequestToHistoric':
+            return { ...state, data: state.data.map((day,count) => { if (day.date === action.data.date) { return {...data, requests: [...state.data.requests, action.data], value : action.data.value*1 + day.value*1 } } }) }
+        case 'addRequestToHistoricExistent':
+            return { ...state, data: [...state.data, action.data ] }
         default:
             break;
     }
